@@ -9,5 +9,3 @@ Lab. Engenharia de Software
 	suporte do adm para explicar a razão de não aprovação de posts;
 -mais:
 	favoritar users e posts;
-	
--commit test
