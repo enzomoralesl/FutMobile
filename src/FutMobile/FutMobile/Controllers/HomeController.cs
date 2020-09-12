@@ -13,7 +13,7 @@ namespace FutMobile.Controllers
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles = "Adm")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
