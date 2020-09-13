@@ -54,15 +54,15 @@ namespace FutMobile
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "237875827628895",
+               appSecret: "1a9dd1a019f063d38ff7b4e3f6e7474b");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+               ClientId = "453744105964-5if99pinqgoniq3oq6vgi2l9s9b48rfr.apps.googleusercontent.com",
+               ClientSecret = "BLtA2OaDKcT8kMK8657zIhrn"
+            });
         }
     }
 }

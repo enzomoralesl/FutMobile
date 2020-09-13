@@ -326,7 +326,7 @@ namespace FutMobile.Controllers
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login"); //esta null ainda?
             }
 
             // Faça logon do usuário com este provedor de logon externo se o usuário já tiver um logon
@@ -368,14 +368,15 @@ namespace FutMobile.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
-                var result = await UserManager.CreateAsync(user);
+                var user = new ApplicationUser { UserName = model.Login, Email = model.Email, Login = model.Login };
+                var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        await UserManager.AddToRoleAsync(user.Id, "User");
                         return RedirectToLocal(returnUrl);
                     }
                 }
