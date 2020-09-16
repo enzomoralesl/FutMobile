@@ -11,6 +11,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using FutMobile.Models;
+using SendGrid.Helpers.Mail;
+using System.Net;
+using System.Configuration;
+using SendGrid;
+using System.Diagnostics;
 
 namespace FutMobile
 {
@@ -18,8 +23,31 @@ namespace FutMobile
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Conecte o seu serviço de email aqui para enviar um email.
-            return Task.FromResult(0);
+            return configSendGridasync(message);
+        }
+
+        private async Task configSendGridasync(IdentityMessage message)
+        {
+            var apiKey = ConfigurationManager.AppSettings["SENDGRID_KEY"];
+            var client = new SendGridClient(apiKey);
+            var from = new EmailAddress("marcelopts151@gmail.com", "FutMobile");
+            var subject = message.Subject;
+            var to = new EmailAddress(message.Destination, "Example User");
+            var plainTextContent = message.Body;
+            var htmlContent = message.Body;
+            var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
+            var response = await client.SendEmailAsync(msg);
+
+            // Send the email.
+            if (client == null)
+            {
+                await client.SendEmailAsync(msg);
+            }
+            else
+            {
+                Trace.TraceError("Failed to create Web transport.");
+                await Task.FromResult(0);
+            }
         }
     }
 
@@ -82,7 +110,7 @@ namespace FutMobile
             if (dataProtectionProvider != null)
             {
                 manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
+                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity")) { TokenLifespan = TimeSpan.FromHours(3) };
             }
             return manager;
         }

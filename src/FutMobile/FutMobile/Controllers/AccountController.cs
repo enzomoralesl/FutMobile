@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FutMobile.Models;
+using System.Diagnostics;
 
 namespace FutMobile.Controllers
 {
@@ -22,7 +23,7 @@ namespace FutMobile.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -72,6 +73,24 @@ namespace FutMobile.Controllers
             {
                 return View(model);
             }
+
+            var user = UserManager.FindByName(model.Login);
+
+            if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+            {
+                if (user != null)
+                {
+                    ModelState.AddModelError("", "Email não confirmado.");
+                    return View(model);
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Usuario não cadastrado.");
+                    return View(model);
+                }
+            }
+
+            // Debug.Write($"Login: {model.Login}");
 
             // Isso não conta falhas de login em relação ao bloqueio de conta
             // Para permitir que falhas de senha acionem o bloqueio da conta, altere para shouldLockout: true
@@ -155,16 +174,16 @@ namespace FutMobile.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    await UserManager.AddToRoleAsync(user.Id, "User");
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    //await UserManager.AddToRoleAsync(user.Id, "User");
 
                     // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar um email com este link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirmar sua conta", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>");
+                    var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Confirme sua conta no FutMobile!", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>!");
 
-                    return RedirectToAction("Index", "Home");
+                    return View("PleaseConfirmEmail");
                 }
                 AddErrors(result);
             }
@@ -182,8 +201,27 @@ namespace FutMobile.Controllers
             {
                 return View("Error");
             }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
+            IdentityResult result;
+            try
+            {
+                result = await UserManager.ConfirmEmailAsync(userId, code);
+            }
+            catch (InvalidOperationException ioe)
+            {
+                // ConfirmEmailAsync throws when the userId is not found.
+                ViewBag.errorMessage = ioe.Message;
+                return View("Error");
+            }
+
+            if (result.Succeeded)
+            {
+                return View();
+            }
+
+            // If we got this far, something failed.
+            AddErrors(result);
+            ViewBag.errorMessage = "ConfirmEmail failed";
+            return View("Error");
         }
 
         //
@@ -203,7 +241,7 @@ namespace FutMobile.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindByNameAsync(model.Email);
+                var user = await UserManager.FindByEmailAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Não revelar que o usuário não existe ou não está confirmado
@@ -212,10 +250,10 @@ namespace FutMobile.Controllers
 
                 // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
                 // Enviar um email com este link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                // await UserManager.SendEmailAsync(user.Id, "Redefinir senha", "Redefina sua senha, clicando <a href=\"" + callbackUrl + "\">aqui</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                await UserManager.SendEmailAsync(user.Id, "Redefinir senha - FutMobile", "Redefina sua senha, clicando <a href=\"" + callbackUrl + "\">aqui</a>");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // Se chegamos até aqui e houver alguma falha, exiba novamente o formulário
@@ -249,11 +287,11 @@ namespace FutMobile.Controllers
             {
                 return View(model);
             }
-            var user = await UserManager.FindByNameAsync(model.Email);
+            var user = await UserManager.FindByEmailAsync(model.Email);
             if (user == null)
             {
                 // Não revelar que o usuário não existe
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                return RedirectToAction("Login", "Account");
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
@@ -326,7 +364,7 @@ namespace FutMobile.Controllers
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
-                return RedirectToAction("Login"); //esta null ainda?
+                return RedirectToAction("Login");
             }
 
             // Faça logon do usuário com este provedor de logon externo se o usuário já tiver um logon
@@ -375,9 +413,17 @@ namespace FutMobile.Controllers
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        await UserManager.AddToRoleAsync(user.Id, "User");
-                        return RedirectToLocal(returnUrl);
+                        //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        //await UserManager.AddToRoleAsync(user.Id, "User");
+                        //return RedirectToLocal(returnUrl);
+
+                        // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
+                        // Enviar um email com este link
+                        var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        await UserManager.SendEmailAsync(user.Id, "Confirme sua conta no FutMobile!", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>!");
+
+                        return View("PleaseConfirmEmail");
                     }
                 }
                 AddErrors(result);
