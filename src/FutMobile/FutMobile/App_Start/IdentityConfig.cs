@@ -32,11 +32,18 @@ namespace FutMobile
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress("marcelopts151@gmail.com", "FutMobile");
             var subject = message.Subject;
-            var to = new EmailAddress(message.Destination, "Example User");
+            var to = new EmailAddress(message.Destination, "Example User 1");
             var plainTextContent = message.Body;
             var htmlContent = message.Body;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
+
+            SendGridMessage sndmsg = new SendGridMessage();
+            sndmsg.From = new EmailAddress("marcelopts151@gmail.com", "FutMobile");
+            sndmsg.ReplyTo = new EmailAddress(message.Destination, "Example User 2");
+            sndmsg.Subject = message.Subject;
+            sndmsg.HtmlContent = message.Body;
+            await client.SendEmailAsync(sndmsg);
 
             // Send the email.
             if (client == null)
@@ -45,7 +52,7 @@ namespace FutMobile
             }
             else
             {
-                Trace.TraceError("Failed to create Web transport.");
+                Trace.TraceError($"Failed to create Web transport.");
                 await Task.FromResult(0);
             }
         }
