@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using FutMobile.Models;
 using System.Configuration;
+using FutMobile.Utilities;
 
 namespace FutMobile
 {
@@ -46,6 +47,9 @@ namespace FutMobile
             // Isso é semelhante à opção RememberMe (Lembre-me) quando você efetua login.
             app.UseTwoFactorRememberBrowserCookie(DefaultAuthenticationTypes.TwoFactorRememberBrowserCookie);
 
+            // Get API Keys
+            var AllAPIKeys = new Vars();
+
             // Remover comentário das seguintes linhas para habilitar o logon com provedores de logon de terceiros
             //app.UseMicrosoftAccountAuthentication(
             //    clientId: "",
@@ -56,13 +60,14 @@ namespace FutMobile
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: ConfigurationManager.AppSettings["FACEBOOK_KEY_appId"],
-               appSecret: ConfigurationManager.AppSettings["FACEBOOK_KEY_appSecret"]);
+               appId: AllAPIKeys.FACEBOOK_KEY_appId,
+               appSecret: AllAPIKeys.FACEBOOK_KEY_appSecret
+               );
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-               ClientId = ConfigurationManager.AppSettings["GOOGLE_KEY_ClientId"],
-               ClientSecret = ConfigurationManager.AppSettings["GOOGLE_KEY_ClientSecret"]
+               ClientId = AllAPIKeys.GOOGLE_KEY_ClientId,
+               ClientSecret = AllAPIKeys.GOOGLE_KEY_ClientSecret
             });
         }
     }

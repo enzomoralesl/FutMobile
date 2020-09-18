@@ -204,7 +204,6 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Microsoft.Owin.Security.xml
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
@@ -220,7 +219,6 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\pt-br\Microsoft.AspNet.Identity.Core.resources.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\pt-br\Microsoft.AspNet.Identity.Owin.resources.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\pt-br\Microsoft.AspNet.Identity.EntityFramework.resources.dll
-C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.csprojAssemblyReference.cache
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.InitialCreate.resources
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.Login.resources
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.csproj.GenerateResource.cache
@@ -247,3 +245,9 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\StarkbankEcdsa.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\SendGrid.pdb
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\SendGrid.xml
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\DotNetEnv.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Diagnostics.DiagnosticSource.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.IO.Compression.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Net.Http.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Diagnostics.DiagnosticSource.xml
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.csprojAssemblyReference.cache

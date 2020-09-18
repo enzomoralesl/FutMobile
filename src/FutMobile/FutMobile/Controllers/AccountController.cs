@@ -181,10 +181,13 @@ namespace FutMobile.Controllers
                     // Enviar um email com este link
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    string myString = System.IO.File.ReadAllText("D:\\Downloads\\Confirmation-Email-Template.html");
+                    var pathToTemplate = HttpRuntime.AppDomainAppPath + "\\Utilities\\Confirmation-Email-Template.html";
+                    string myString = System.IO.File.ReadAllText(pathToTemplate);
                     myString = myString.Replace("PLACE_HOLDER", callbackUrl);
-                    Debug.Write($"HTML: {myString}");
-                    await UserManager.SendEmailAsync(user.Id, "Confirme sua conta no FutMobile!", myString);
+
+                    string Assunto = user.Login + ", confirme sua conta no FutMobile!";
+
+                    await UserManager.SendEmailAsync(user.Id, Assunto, myString);
 
                     return View("PleaseConfirmEmail");
                 }
@@ -254,8 +257,11 @@ namespace FutMobile.Controllers
                 // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
                 // Enviar um email com este link
                 var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
-                await UserManager.SendEmailAsync(user.Id, "Redefinir senha - FutMobile", "Redefina sua senha, clicando <a href=\"" + callbackUrl + "\">aqui</a>");
+                var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code, Email = user.Email }, protocol: Request.Url.Scheme);
+
+                string Assunto = user.Login + ", recupere sua senha no FutMobile!";
+
+                await UserManager.SendEmailAsync(user.Id, Assunto, "Redefina sua senha no FutMobile, clicando <a href=\"" + callbackUrl + "\">aqui</a>");
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
@@ -274,9 +280,12 @@ namespace FutMobile.Controllers
         //
         // GET: /Account/ResetPassword
         [AllowAnonymous]
-        public ActionResult ResetPassword(string code)
+        public ActionResult ResetPassword(string code, string email)
         {
-            return code == null ? View("Error") : View();
+            ResetPasswordViewModel modelo = new ResetPasswordViewModel();
+            modelo.Code = code;
+            modelo.Email = email;
+            return code == null ? View("Error") : View(modelo);
         }
 
         //
@@ -424,7 +433,10 @@ namespace FutMobile.Controllers
                         // Enviar um email com este link
                         var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                         var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                        await UserManager.SendEmailAsync(user.Id, "Confirme sua conta no FutMobile!", "Confirme sua conta clicando <a href=\"" + callbackUrl + "\">aqui</a>!");
+                        string myString = System.IO.File.ReadAllText("D:\\Downloads\\Confirmation-Email-Template.html");
+                        myString = myString.Replace("PLACE_HOLDER", callbackUrl);
+
+                        await UserManager.SendEmailAsync(user.Id, "Confirme sua conta no FutMobile!", myString);
 
                         return View("PleaseConfirmEmail");
                     }

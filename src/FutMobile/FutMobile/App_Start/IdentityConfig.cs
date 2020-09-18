@@ -16,6 +16,7 @@ using System.Net;
 using System.Configuration;
 using SendGrid;
 using System.Diagnostics;
+using FutMobile.Utilities;
 
 namespace FutMobile
 {
@@ -28,18 +29,20 @@ namespace FutMobile
 
         private async Task configSendGridasync(IdentityMessage message)
         {
-            var apiKey = ConfigurationManager.AppSettings["SENDGRID_KEY"];
+            var SENDGRIDAPI = new Vars();
+
+            var apiKey = SENDGRIDAPI.SENDGRID_KEY;
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("marcelopts151@gmail.com", "FutMobile");
+            var from = new EmailAddress("vitinhosswh@gmail.com", "FutMobile Admin");
             var subject = message.Subject;
-            var to = new EmailAddress(message.Destination, "Example User 1");
+            var to = new EmailAddress(message.Destination, "Apaixonado por futebol");
             var plainTextContent = message.Body;
             var htmlContent = message.Body;
             var msg = MailHelper.CreateSingleEmail(from, to, subject, plainTextContent, htmlContent);
             var response = await client.SendEmailAsync(msg);
 
             SendGridMessage sndmsg = new SendGridMessage();
-            sndmsg.From = new EmailAddress("marcelopts151@gmail.com", "FutMobile");
+            sndmsg.From = new EmailAddress("vitinhosswh@gmail.com", "FutMobile");
             sndmsg.ReplyTo = new EmailAddress(message.Destination, "Example User 2");
             sndmsg.Subject = message.Subject;
             sndmsg.HtmlContent = message.Body;
