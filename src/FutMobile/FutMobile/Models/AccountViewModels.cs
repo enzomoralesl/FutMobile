@@ -10,8 +10,13 @@ namespace FutMobile.Models
         public string Email { get; set; }
 
         [Required]
+        [StringLength(100, ErrorMessage = "O campo Nome deve ter no mínimo {2} caracteres.", MinimumLength = 3)]
+        [Display(Name = "Nome")]
+        public string Name { get; set; }
+
+        [Required]
         [Display(Name = "Login")]
-        public string Login { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
@@ -70,7 +75,7 @@ namespace FutMobile.Models
 
         [Required]
         [Display(Name = "Login")]
-        public string Login { get; set; }
+        public string UserName { get; set; }
 
         [Display(Name = "Lembrar-me?")]
         public bool RememberMe { get; set; }
@@ -78,6 +83,11 @@ namespace FutMobile.Models
 
     public class RegisterViewModel
     {
+        [Required]
+        [StringLength(100, ErrorMessage = "O campo Login deve ter no mínimo {2} caracteres.", MinimumLength = 3)]
+        [Display(Name = "Login")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -94,7 +104,10 @@ namespace FutMobile.Models
         [Compare("Password", ErrorMessage = "A senha e a senha de confirmação não correspondem.")]
         public string ConfirmPassword { get; set; }
 
-        public string Login { get; set; }
+        [Required]
+        [StringLength(100, ErrorMessage = "O campo Nome deve ter no mínimo {2} caracteres.", MinimumLength = 3)]
+        [Display(Name = "Nome")]
+        public string Name { get; set; }
     }
 
     public class ResetPasswordViewModel

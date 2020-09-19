@@ -304,6 +304,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RestrictedController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -315,10 +316,15 @@
     <Compile Include="Migrations\202009122018071_Login.Designer.cs">
       <DependentUpon>202009122018071_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009190201264_Name.cs" />
+    <Compile Include="Migrations\202009190201264_Name.designer.cs">
+      <DependentUpon>202009190201264_Name.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\Vars.cs" />
@@ -478,6 +484,7 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Account\PleaseConfirmEmail.cshtml" />
+    <Content Include="Views\Restricted\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -493,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009122018071_Login.resx">
       <DependentUpon>202009122018071_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009190201264_Name.resx">
+      <DependentUpon>202009190201264_Name.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

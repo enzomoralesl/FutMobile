@@ -1,61 +1,68 @@
 ﻿@using FutMobile.Models
 @model LoginViewModel
 @{
-    ViewBag.Title = "Efetuar login";
+    ViewBag.Title = "Entre no mundo do futebol";
 }
 
-<h2>@ViewBag.Title.</h2>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12" style="text-align:center; margin-top:5vh;">
         <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Usar uma conta local para efetuar login.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Login, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Login, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Login, "", new { @class = "text-danger" })
+
+            <div class="col-md-4"></div>
+            <div class="col-md-4 backgroungLogin">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="col-md-12" style="padding-bottom:10px;">
+                        <img src="../../Utilities/icone.png" width=75 height=75 style="border-radius:25%;">
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+
+                    <h4>@ViewBag.Title</h4>
+                    <br />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10" style="text-align:center;">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="text-align:left;">
+                        <div class="checkbox" style="padding:0px; margin-left:10px;">
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Efetuar login" class="btn btn-default" />
+                    <div class="col-md-6" style="text-align:right;">
+                        <p>
+                            @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword")
+                        </p>
                     </div>
+                    <div class="col-md-12">
+                        <br />
+                        <input type="submit" value="Efetuar login" class="btn btn-fut" />
+                    </div>
+                }
+                <div class="col-md-12" style="text-align:center; margin-top: 10%;">
+                    <section id="socialLoginForm">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    </section>
                 </div>
-                <p>
-                    @Html.ActionLink("Registrar-se como novo usuário", "Register")
-                </p>
+            </div>
+            <div class="col-md-4"></div>
+        </section>
+    </div>
 
-                <p>
-                    @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword")
-                </p>
-            }
-        </section>
-    </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
 </div>
 
 @section Scripts {

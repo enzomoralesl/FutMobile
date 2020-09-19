@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FutMobile.Models;
 using System.Diagnostics;
+using FutMobile.Utilities;
 
 namespace FutMobile.Controllers
 {
@@ -74,7 +75,8 @@ namespace FutMobile.Controllers
                 return View(model);
             }
 
-            var user = UserManager.FindByName(model.Login);
+            var user = UserManager.FindByName(model.UserName);
+            Debug.Write($"Login: {model.UserName}");
 
             if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
             {
@@ -94,11 +96,11 @@ namespace FutMobile.Controllers
 
             // Isso não conta falhas de login em relação ao bloqueio de conta
             // Para permitir que falhas de senha acionem o bloqueio da conta, altere para shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Login, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index", "Restricted");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -143,7 +145,7 @@ namespace FutMobile.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(model.ReturnUrl);
+                    return RedirectToAction("ForgotPasswordConfirmation", "Account");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.Failure:
@@ -170,13 +172,11 @@ namespace FutMobile.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Login, Email = model.Email, Login = model.Login };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, Login = model.Name };
                 var result = await UserManager.CreateAsync(user, model.Password);
+                await UserManager.AddClaimAsync(user.Id, new Claim("FullName", user.Login));
                 if (result.Succeeded)
                 {
-                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    //await UserManager.AddToRoleAsync(user.Id, "User");
-
                     // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar um email com este link
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -185,7 +185,7 @@ namespace FutMobile.Controllers
                     string myString = System.IO.File.ReadAllText(pathToTemplate);
                     myString = myString.Replace("PLACE_HOLDER", callbackUrl);
 
-                    string Assunto = user.Login + ", confirme sua conta no FutMobile!";
+                    string Assunto = user.UserName + ", confirme sua conta no FutMobile!";
 
                     await UserManager.SendEmailAsync(user.Id, Assunto, myString);
 
@@ -259,9 +259,13 @@ namespace FutMobile.Controllers
                 var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code, Email = user.Email }, protocol: Request.Url.Scheme);
 
-                string Assunto = user.Login + ", recupere sua senha no FutMobile!";
+                var pathToTemplate = HttpRuntime.AppDomainAppPath + "\\Utilities\\Lost_Password.html";
+                string myString = System.IO.File.ReadAllText(pathToTemplate);
+                myString = myString.Replace("PLACE_HOLDER", callbackUrl);
 
-                await UserManager.SendEmailAsync(user.Id, Assunto, "Redefina sua senha no FutMobile, clicando <a href=\"" + callbackUrl + "\">aqui</a>");
+                string Assunto = user.UserName + ", recupere sua senha no FutMobile!";
+
+                await UserManager.SendEmailAsync(user.Id, Assunto, myString);
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
@@ -418,7 +422,7 @@ namespace FutMobile.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Login, Email = model.Email, Login = model.Login };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, Login = model.Name };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

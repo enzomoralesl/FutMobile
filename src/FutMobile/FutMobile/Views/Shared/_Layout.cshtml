@@ -23,9 +23,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Início", "Index", "Restricted")</li>
+                    <!--<li>@Html.ActionLink("Sobre", "About", "Home")</li>-->
+                    <!--<li>@Html.ActionLink("Contato", "Contact", "Home")</li>-->
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -35,7 +35,9 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
+            <div class="col-md-12" style="text-align:center;">
+                <p>&copy; @DateTime.Now.Year - FutMobile - Todos os direitos reservados.</p>
+            </div>
         </footer>
     </div>
 
