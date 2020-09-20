@@ -1,0 +1,98 @@
+﻿@using FutMobile.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Entre no mundo do futebol";
+}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<div class="row">
+    <div class="col-md-12" style="text-align:center; margin-top:2vh;">
+        <section id="loginForm">
+
+            <div class="col-md-4"></div>
+            <div class="col-md-4 backgroungLogin">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="col-md-12" style="padding-bottom:10px;">
+                        <img src="../../Utilities/FutMobile_logo.png" width=200 height=200 />
+                        <br /><br />
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10" style="text-align:center;">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="text-align:left;">
+                        <div class="checkbox" style="padding:0px; margin-left:37px; margin-right:20px;">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            <div style="padding: 0px; margin-left:-17px;">
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="text-align:right; ">
+                        <p>
+                            @Html.ActionLink("Esqueceu sua senha?", "ForgotPassword")
+                        </p>
+                    </div>
+                    <div class="col-md-12" style="text-align:center; margin-top: 3%;">
+                        <input type="submit" value="Entrar" class="botaologin" />
+                    </div>
+                    }
+                <div class="col-md-12" style="text-align:center; margin-top: 5%;">
+                    <section id="socialLoginForm">
+                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                    </section>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </section>
+    </div>
+
+</div>
+
+<style>
+    .botaologin {
+        -webkit-appearance: none;
+        width: auto;
+        min-width: 100px;
+        border-radius: 24px;
+        text-align: center;
+        padding: 15px 40px;
+        margin-top: 5px;
+        background-color:blue;
+        color: #fff;
+        font-size: 14px;
+        margin-left: auto;
+        font-weight: 500;
+        box-shadow: 0px 2px 6px -1px rgba(0,0,0,.13);
+        border: none;
+        transition: all .3s ease;
+        outline: 0;
+        &:hover{
+        transform: translateY(-3px);
+        box-shadow: 0 2px 6px -1px rgba($primary, .65);
+        &:active{
+            transform: scale(.99);
+            }
+        }
+     }
+</style>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

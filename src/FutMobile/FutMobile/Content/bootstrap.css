@@ -4597,6 +4597,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-right {
     float: right !important;
     margin-right: -15px;
+    font-size:12px;
   }
   .navbar-right ~ .navbar-right {
     margin-right: 0;
@@ -4701,6 +4702,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse {
     background-color: #10470e;
     border-color: #10470e;
+    max-height:7%;
 }
 .navbar-inverse .navbar-brand {
     color: #f0f0f0;
