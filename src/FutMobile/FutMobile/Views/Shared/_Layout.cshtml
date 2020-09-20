@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
+    <title>@ViewBag.Title - FutMobile</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
@@ -21,11 +21,13 @@
                 </button>
                 @Html.ActionLink("FutMobile", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
+            <p class="navbar-brand">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Início", "Index", "Restricted")</li>
-                    <!--<li>@Html.ActionLink("Sobre", "About", "Home")</li>-->
-                    <!--<li>@Html.ActionLink("Contato", "Contact", "Home")</li>-->
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.Partial("~/Views/Restricted/NavBar.cshtml")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

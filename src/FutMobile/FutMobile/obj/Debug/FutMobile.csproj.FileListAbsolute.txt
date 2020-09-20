@@ -251,3 +251,4 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Net.Http.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.Name.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.csprojAssemblyReference.cache

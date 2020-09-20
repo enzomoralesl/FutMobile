@@ -11,10 +11,10 @@
             @Html.ValidationSummary("", new { @class = "text-danger" })
             <div class="col-md-4"></div>
             <div class="col-md-4 backgroungLogin">
+                <h4>&nbsp;&nbsp;Registre-se abaixo:</h4>
                 <div class="col-md-12" style="padding-bottom:10px;">
-                    <img src="../../Utilities/icone.png" width=75 height=75 style="border-radius:25%;">
+                    <img src="../../Utilities/FutMobile_logo.png" width=200 height=200 />
                 </div>
-                <h4>@ViewBag.Title</h4>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Name, new { @class = "col-md-12 control-label", @style = "text-align:left" })
                     <div class="col-md-12">
@@ -49,7 +49,7 @@
 
                 <div class="form-group">
                     <div class="col-md-12">
-                        <input type="submit" class="btn btn-fut" value="Registrar-se" />
+                        <input type="submit" class="botaoregister" value="Registrar-se" />
                     </div>
                 </div>
             </div>
@@ -59,3 +59,36 @@
         }
     </div>
 </div>
+
+<style>
+    .botaoregister {
+        -webkit-appearance: none;
+        width: auto;
+        min-width: 100px;
+        border-radius: 24px;
+        text-align: center;
+        padding: 15px 40px;
+        margin-top: 5px;
+        background-color: blue;
+        color: #fff;
+        font-size: 14px;
+        margin-left: auto;
+        font-weight: 500;
+        box-shadow: 0px 2px 6px -1px rgba(0,0,0,.13);
+        border: none;
+        transition: all .3s ease;
+        outline: 0;
+        &:hover
+
+    {
+        transform: translateY(-3px);
+        box-shadow: 0 2px 6px -1px rgba($primary, .65);
+        &:active
+
+    {
+        transform: scale(.99);
+    }
+
+    }
+    }
+</style>

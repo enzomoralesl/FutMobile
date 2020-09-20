@@ -174,9 +174,9 @@ namespace FutMobile.Controllers
             {
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, Login = model.Name };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                await UserManager.AddClaimAsync(user.Id, new Claim("FullName", user.Login));
                 if (result.Succeeded)
                 {
+                    await UserManager.AddClaimAsync(user.Id, new Claim("FullName", user.Login));
                     // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar um email com este link
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -424,15 +424,13 @@ namespace FutMobile.Controllers
                 }
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, Login = model.Name };
                 var result = await UserManager.CreateAsync(user, model.Password);
+
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
-                        //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-                        //await UserManager.AddToRoleAsync(user.Id, "User");
-                        //return RedirectToLocal(returnUrl);
-
+                        await UserManager.AddClaimAsync(user.Id, new Claim("FullName", user.Login));
                         // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
                         // Enviar um email com este link
                         var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -440,7 +438,9 @@ namespace FutMobile.Controllers
                         string myString = System.IO.File.ReadAllText("D:\\Downloads\\Confirmation-Email-Template.html");
                         myString = myString.Replace("PLACE_HOLDER", callbackUrl);
 
-                        await UserManager.SendEmailAsync(user.Id, "Confirme sua conta no FutMobile!", myString);
+                        string Assunto = user.UserName + ", confirme sua conta no FutMobile!";
+
+                        await UserManager.SendEmailAsync(user.Id, Assunto, myString);
 
                         return View("PleaseConfirmEmail");
                     }
