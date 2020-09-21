@@ -185,7 +185,7 @@ namespace FutMobile.Controllers
                     string myString = System.IO.File.ReadAllText(pathToTemplate);
                     myString = myString.Replace("PLACE_HOLDER", callbackUrl);
 
-                    string Assunto = user.UserName + ", confirme sua conta no FutMobile!";
+                    string Assunto = user.Login + ", confirme sua conta no FutMobile!";
 
                     await UserManager.SendEmailAsync(user.Id, Assunto, myString);
 
@@ -435,10 +435,11 @@ namespace FutMobile.Controllers
                         // Enviar um email com este link
                         var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                         var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                        string myString = System.IO.File.ReadAllText("D:\\Downloads\\Confirmation-Email-Template.html");
+                        var pathToTemplate = HttpRuntime.AppDomainAppPath + "\\Utilities\\Confirmation-Email-Template.html";
+                        string myString = System.IO.File.ReadAllText(pathToTemplate);
                         myString = myString.Replace("PLACE_HOLDER", callbackUrl);
 
-                        string Assunto = user.UserName + ", confirme sua conta no FutMobile!";
+                        string Assunto = user.Login + ", confirme sua conta no FutMobile!";
 
                         await UserManager.SendEmailAsync(user.Id, Assunto, myString);
 
