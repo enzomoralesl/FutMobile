@@ -5,21 +5,21 @@ namespace FutMobile.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "O campo Email é requerido.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Nome é requerido.")]
         [StringLength(100, ErrorMessage = "O campo Nome deve ter no mínimo {2} caracteres.", MinimumLength = 3)]
         [Display(Name = "Nome")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Login é requerido.")]
         [Display(Name = "Login")]
         public string UserName { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
+        [Required(ErrorMessage = "O campo Senha é requerido.")]
+        [StringLength(100, ErrorMessage = "A senha deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string Password { get; set; }
@@ -68,12 +68,12 @@ namespace FutMobile.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "O campo Senha é requerido.")]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string Password { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Login é requerido.")]
         [Display(Name = "Login")]
         public string UserName { get; set; }
 
@@ -83,18 +83,18 @@ namespace FutMobile.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "O campo Login é requerido.")]
         [StringLength(100, ErrorMessage = "O campo Login deve ter no mínimo {2} caracteres.", MinimumLength = 3)]
         [Display(Name = "Login")]
         public string UserName { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "O campo Email é requerido.")]
+        [EmailAddress(ErrorMessage = "O campo Email não contém um e-mail válido.")]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
+        [Required(ErrorMessage = "O campo Senha é requerido.")]
+        [StringLength(100, ErrorMessage = "A senha deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string Password { get; set; }
@@ -104,7 +104,7 @@ namespace FutMobile.Models
         [Compare("Password", ErrorMessage = "A senha e a senha de confirmação não correspondem.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Nome é requerido.")]
         [StringLength(100, ErrorMessage = "O campo Nome deve ter no mínimo {2} caracteres.", MinimumLength = 3)]
         [Display(Name = "Nome")]
         public string Name { get; set; }
@@ -112,13 +112,13 @@ namespace FutMobile.Models
 
     public class ResetPasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "O campo Email é requerido.")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
-        [StringLength(100, ErrorMessage = "O/A {0} deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
+        [Required(ErrorMessage = "O campo Senha é requerido.")]
+        [StringLength(100, ErrorMessage = "A Senha deve ter no mínimo {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Senha")]
         public string Password { get; set; }
@@ -133,7 +133,7 @@ namespace FutMobile.Models
 
     public class ForgotPasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "O campo Email é requerido.")]
         [EmailAddress]
         [Display(Name = "E-mail")]
         public string Email { get; set; }

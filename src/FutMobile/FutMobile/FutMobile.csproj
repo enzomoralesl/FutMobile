@@ -56,6 +56,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FluentAssertions, Version=5.10.3.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentAssertions.5.10.3\lib\net47\FluentAssertions.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -96,6 +99,7 @@
     <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.1.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
       <Private>True</Private>
@@ -286,6 +290,18 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Xania.AspNet.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xania.AspNet.Simulator.1.4.2\lib\net45\Xania.AspNet.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xania.AspNet.Http, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xania.AspNet.Simulator.1.4.2\lib\net45\Xania.AspNet.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Xania.AspNet.Razor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xania.AspNet.Simulator.1.4.2\lib\net45\Xania.AspNet.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Xania.AspNet.Simulator, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xania.AspNet.Simulator.1.4.2\lib\net45\Xania.AspNet.Simulator.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Owin">
@@ -301,9 +317,13 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Context\Contexto.cs" />
+    <Compile Include="Context\ContextoComentario.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\RestrictedController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -320,13 +340,46 @@
     <Compile Include="Migrations\202009190201264_Name.designer.cs">
       <DependentUpon>202009190201264_Name.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010060245542_Nm.cs" />
+    <Compile Include="Migrations\202010060245542_Nm.designer.cs">
+      <DependentUpon>202010060245542_Nm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010060246363_Name1.cs" />
+    <Compile Include="Migrations\202010060246363_Name1.designer.cs">
+      <DependentUpon>202010060246363_Name1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061541248_LikesAndComments.cs" />
+    <Compile Include="Migrations\202010061541248_LikesAndComments.designer.cs">
+      <DependentUpon>202010061541248_LikesAndComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061556537_Likes.cs" />
+    <Compile Include="Migrations\202010061556537_Likes.designer.cs">
+      <DependentUpon>202010061556537_Likes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061609236_AddedLikes.cs" />
+    <Compile Include="Migrations\202010061609236_AddedLikes.designer.cs">
+      <DependentUpon>202010061609236_AddedLikes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061613426_AddedLikesOneMoreTime.cs" />
+    <Compile Include="Migrations\202010061613426_AddedLikesOneMoreTime.designer.cs">
+      <DependentUpon>202010061613426_AddedLikesOneMoreTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061842534_AddedComments.cs" />
+    <Compile Include="Migrations\202010061842534_AddedComments.designer.cs">
+      <DependentUpon>202010061842534_AddedComments.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="Tests\Controllers\AccountControllerTest.cs" />
+    <Compile Include="Tests\Controllers\HomeControllerTest.cs" />
+    <Compile Include="Tests\Controllers\ManageControllerTest.cs" />
+    <Compile Include="Tests\Controllers\RestrictedControllerTest.cs" />
     <Compile Include="Utilities\Vars.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -440,6 +493,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Utilities\icone_basico.ico" />
     <Content Include="Utilities\LOGOMINI.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -488,6 +542,16 @@
     <Content Include="Views\Account\PleaseConfirmEmail.cshtml" />
     <Content Include="Views\Restricted\Index.cshtml" />
     <Content Include="Views\Restricted\NavBar.cshtml" />
+    <Content Include="Views\Posts\Create.cshtml" />
+    <Content Include="Views\Posts\Delete.cshtml" />
+    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\Posts\Edit.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\Comentarios\Create.cshtml" />
+    <Content Include="Views\Comentarios\Delete.cshtml" />
+    <Content Include="Views\Comentarios\Details.cshtml" />
+    <Content Include="Views\Comentarios\Edit.cshtml" />
+    <Content Include="Views\Comentarios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -506,6 +570,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009190201264_Name.resx">
       <DependentUpon>202009190201264_Name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010060245542_Nm.resx">
+      <DependentUpon>202010060245542_Nm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010060246363_Name1.resx">
+      <DependentUpon>202010060246363_Name1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061541248_LikesAndComments.resx">
+      <DependentUpon>202010061541248_LikesAndComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061556537_Likes.resx">
+      <DependentUpon>202010061556537_Likes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061609236_AddedLikes.resx">
+      <DependentUpon>202010061609236_AddedLikes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061613426_AddedLikesOneMoreTime.resx">
+      <DependentUpon>202010061613426_AddedLikesOneMoreTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061842534_AddedComments.resx">
+      <DependentUpon>202010061842534_AddedComments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

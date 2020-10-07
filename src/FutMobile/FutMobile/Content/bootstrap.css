@@ -3115,8 +3115,22 @@ fieldset[disabled] .btn-default.focus {
 }
 .btn-fut {
     color: #fff;
-    background-color: #2d632c;
+    background-color: #16496b;
     border-color: #ccc;
+    -webkit-appearance: none;
+    width: auto;
+    min-width: 100px;
+    border-radius: 24px;
+    text-align: center;
+    padding: 15px 40px;
+    margin-top: 5px;
+    font-size: 14px;
+    margin-left: auto;
+    font-weight: 500;
+    box-shadow: 0px 2px 6px -1px rgba(0,0,0,.13);
+    border: none;
+    transition: all .3s ease;
+    outline: 0;
 }
 .btn-fut:focus,
 .btn-fut.focus {

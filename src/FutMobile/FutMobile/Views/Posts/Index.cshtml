@@ -1,0 +1,76 @@
+﻿@using Microsoft.AspNet.Identity;
+@using Microsoft.AspNet.Identity.Owin;
+@using System.Security.Claims;
+
+@model IEnumerable<FutMobile.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Feed de Notícias</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Msg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Likes)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Reverse())
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Msg)
+        </td>
+
+        @{ List<string> ListaDeLikes = item.Likes.Split(',').ToList(); }
+
+        @if (ListaDeLikes[0] == "") { <td>0</td>}
+        @if (ListaDeLikes[0] != ""){ <td>@ListaDeLikes.Count</td>}
+
+    <td>
+        @if (User.Identity.Name == item.UserLogin)
+        {
+            @Html.ActionLink("Edit", "Edit", new { id = item.Codigo }) @: |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Codigo }) @: |
+        }
+        @Html.ActionLink("Details", "Details", new { id = item.Codigo }) |
+        @Html.ActionLink("Like", "AddLike", new { id = item.Codigo }) |
+        @Html.ActionLink("Comentar", "AddComment", new { id = item.Codigo })
+    </td>
+</tr>
+    }
+
+</table>
