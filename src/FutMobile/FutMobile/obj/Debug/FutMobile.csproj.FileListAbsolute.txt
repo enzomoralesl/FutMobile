@@ -388,3 +388,17 @@ C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Debug\FutMobile.csproj.CopyComplete
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Debug\FutMobile.dll
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Debug\FutMobile.pdb
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\FluentAssertions.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Xania.AspNet.Core.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Xania.AspNet.Http.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Xania.AspNet.Razor.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Xania.AspNet.Simulator.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\FluentAssertions.pdb
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\FluentAssertions.xml
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.Nm.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.Name1.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.LikesAndComments.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.Likes.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.AddedLikes.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.AddedLikesOneMoreTime.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Debug\FutMobile.Migrations.AddedComments.resources

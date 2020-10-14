@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=database-site-aws.ca0lc9xougfj.sa-east-1.rds.amazonaws.com,1433;Initial Catalog=aspnet-FutMobile-20200912041056;Persist Security Info=True;User ID=siteawsDB10;Password=sqlPass15050" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\windows\\Documents\\Mackenzie\\6º\ Semestre\\Software\\GitHub\\src\\FutMobile\\FutMobile\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
-  </parameter>
-</parameters>

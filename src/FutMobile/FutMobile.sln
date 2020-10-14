@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1259
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutMobile", "FutMobile\FutMobile.csproj", "{52FAB7FE-7D37-47FA-B862-0A18BEFEEB20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutMobile.Tests", "FutMobile.Tests\FutMobile.Tests.csproj", "{17CD67C5-3FF0-46CB-8411-41EAB7E91D00}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{52FAB7FE-7D37-47FA-B862-0A18BEFEEB20}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{52FAB7FE-7D37-47FA-B862-0A18BEFEEB20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52FAB7FE-7D37-47FA-B862-0A18BEFEEB20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17CD67C5-3FF0-46CB-8411-41EAB7E91D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17CD67C5-3FF0-46CB-8411-41EAB7E91D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17CD67C5-3FF0-46CB-8411-41EAB7E91D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17CD67C5-3FF0-46CB-8411-41EAB7E91D00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

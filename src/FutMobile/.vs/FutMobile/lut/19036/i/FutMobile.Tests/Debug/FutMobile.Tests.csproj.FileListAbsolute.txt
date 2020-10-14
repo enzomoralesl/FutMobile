@@ -1,0 +1,15 @@
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\pt\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\pt\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\pt\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\FutMobile.Tests.dll.config
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\FutMobile.Tests.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\i\FutMobile.Tests\Debug\FutMobile.Tests.csproj.CoreCompileInputs.cache
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\i\FutMobile.Tests\Debug\FutMobile.Tests.csproj.CopyComplete
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\i\FutMobile.Tests\Debug\FutMobile.Tests.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\i\FutMobile.Tests\Debug\FutMobile.Tests.csprojAssemblyReference.cache
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\b\FutMobile.Tests\bin\Debug\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\.vs\FutMobile\lut\0\i\FutMobile.Tests\Debug\FutMobile.Tests.dll.config
