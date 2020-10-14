@@ -1,89 +1,95 @@
-﻿<ul class="nav navbar-nav">
-    <a href="@Url.Action("Index", "Restricted")">Feed</a>
-    <a href="#">Wiki</a>
-    <a href="#">Sobre</a>
-    <a href="#">Contato</a>
-    <a href="#">Ajuda</a>
-    <div class="animation start-home"></div>
-</ul>
-
+﻿
 <style>
     ul {
         position: relative;
-        margin: 270px auto 0;
-        width: 500px;
-        height: 50px;
-        background: #34495e;
+        margin-left: 7vh !important;
+        background: #10470e;
         border-radius: 8px;
+        border-color: #10470e;
         font-size: 0;
-        box-shadow: 0 2px 3px 0 rgba(0,0,0,.1);
     }
 
-        ul a {
-            font-size: 15px;
-            text-transform: uppercase;
-            color: white;
-            text-decoration: none;
-            line-height: 50px;
-            position: relative;
-            z-index: 1;
-            display: inline-block;
-            text-align: center;
-        }
+    ul a {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: white;
+        text-decoration: none;
+        line-height: 50px;
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        text-align: center;
+    }
 
-        ul .animation {
-            position: absolute;
-            height: 100%;
-            top: 0;
-            z-index: 0;
-            background: #1abc9c;
-            width: 100px;
-            border-radius: 8px;
-            transition: all .5s ease 0s;
-        }
+    ul .animation {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        z-index: 0;
+        background: #2173c3;
+        width: 100px;
+        border-radius: 8px;
+        transition: all .5s ease 0s;
+    }
 
-a:nth-child(1){
-    width: 100px;
-}
+    a:nth-child(1) {
+        width: 100px;
+    }
 
     ul .start-home, a:nth-child(1):hover ~ .animation {
         width: 100px;
         left: 0;
     }
 
-a:nth-child(2){
+    a:nth-child(2) {
         width: 100px;
-}
+    }
 
     ul .start-wiki, a:nth-child(2):hover ~ .animation {
         width: 100px;
         left: 100px;
     }
 
-a:nth-child(3) {
+    a:nth-child(3) {
         width: 100px;
-}
+    }
 
     ul .start-sobre, a:nth-child(3):hover ~ .animation {
         width: 100px;
         left: 200px;
     }
 
-a:nth-child(4) {
+    a:nth-child(4) {
         width: 100px;
-}
+    }
 
     ul .start-contact, a:nth-child(4):hover ~ .animation {
         width: 100px;
         left: 300px;
     }
 
-a:nth-child(5) {
+    a:nth-child(5) {
         width: 100px;
-}
+    }
 
     ul .start-help, a:nth-child(5):hover ~ .animation {
         width: 100px;
         left: 400px;
     }
+
+    a:nth-child(6) {
+        width: 100px;
+    }
+
+    ul .start-help, a:nth-child(6):hover ~ .animation {
+        width: 100px;
+        left: 500px;
+    }
 </style>
+
+
+<div class="nav navbar-nav">
+
+</div>
+
+

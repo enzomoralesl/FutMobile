@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FutMobile.Models.Comentario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Comentarios</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CodigoDoPost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserLoginCom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataCom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MsgCom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeCom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LikesCom)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.Reverse()) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodigoDoPost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserLoginCom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataCom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MsgCom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeCom)
+        </td>
+        @{ List<string> ListaDeLikes = item.LikesCom.Split(',').ToList(); }
+
+        @if (ListaDeLikes[0] == "") { <td>0</td>}
+        @if (ListaDeLikes[0] != ""){ <td>@ListaDeLikes.Count</td>}
+
+<td>
+            @if (User.Identity.Name == item.UserLoginCom)
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.CodigoCom }) @: |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CodigoCom }) @: |
+            }
+            @Html.ActionLink("Details", "Details", new { id = item.CodigoCom }) |
+            @Html.ActionLink("Like", "AddLike", new { id = item.CodigoCom })
+        </td>
+    </tr>
+}
+
+</table>

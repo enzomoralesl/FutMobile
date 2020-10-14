@@ -6886,4 +6886,170 @@ button.close {
     border-radius: 10px;
     padding:15px;
 }
+
+.like {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    background-color: forestgreen;
+    color: #fff;
+    font-size: 17px;
+    align-items: center;
+    
+}
+
+.like:hover {
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.5s;
+    background-color: #efefef;
+    color: forestgreen;
+    border-color: #efefef;
+}
+
+
+ul {
+    position: relative;
+    margin-left: 7vh !important;
+    background: #10470e;
+    border-radius: 8px;
+    border-color: #10470e;
+    font-size: 0;
+}
+
+    ul a {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: white;
+        text-decoration: none;
+        line-height: 50px;
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        text-align: center;
+    }
+
+    ul .animation {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        z-index: 0;
+        background: #2173c3;
+        width: 100px;
+        border-radius: 8px;
+        transition: all .5s ease 0s;
+    }
+
+a:nth-child(1) {
+    width: 100px;
+}
+
+    ul .start-home, a:nth-child(1):hover ~ .animation {
+        width: 100px;
+        left: 0;
+    }
+
+a:nth-child(2) {
+    width: 100px;
+}
+
+    ul .start-wiki, a:nth-child(2):hover ~ .animation {
+        width: 100px;
+        left: 100px;
+    }
+
+a:nth-child(3) {
+    width: 100px;
+}
+
+    ul .start-sobre, a:nth-child(3):hover ~ .animation {
+        width: 100px;
+        left: 200px;
+    }
+
+a:nth-child(4) {
+    width: 100px;
+}
+
+    ul .start-contact, a:nth-child(4):hover ~ .animation {
+        width: 100px;
+        left: 300px;
+    }
+
+a:nth-child(5) {
+    width: 100px;
+}
+
+    ul .start-help, a:nth-child(5):hover ~ .animation {
+        width: 100px;
+        left: 400px;
+    }
+
+a:nth-child(6) {
+    width: 100px;
+}
+
+    ul .start-help, a:nth-child(6):hover ~ .animation {
+        width: 100px;
+        left: 500px;
+    }
+
+
+
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+    .dropdown .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        float: none;
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.navcentral {
+    font-size:12px;
+}
+
+    .navcentral:hover {
+        color: #fff;
+        text-decoration: none;
+    }
 /*# sourceMappingURL=bootstrap.css.map */

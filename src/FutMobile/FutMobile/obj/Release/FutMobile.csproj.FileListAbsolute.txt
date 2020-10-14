@@ -285,3 +285,18 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.AddedLikesOneMoreTime.resources
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.AddedComments.resources
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.csprojAssemblyReference.cache
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\FluentAssertions.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Xania.AspNet.Core.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Xania.AspNet.Http.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Xania.AspNet.Razor.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Xania.AspNet.Simulator.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\FluentAssertions.pdb
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\FluentAssertions.xml
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.Nm.resources
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.Name1.resources
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.LikesAndComments.resources
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.Likes.resources
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.AddedLikes.resources
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.AddedLikesOneMoreTime.resources
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.AddedComments.resources

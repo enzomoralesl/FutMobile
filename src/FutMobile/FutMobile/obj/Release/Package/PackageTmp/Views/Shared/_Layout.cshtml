@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    ViewBag.teste = "wiki";
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,6 +12,8 @@
     @Styles.Render("~/Content/css/")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/bootstrap")
+
+    <link rel="shortcut icon" href="../../Utilities/icone_basico.ico" />
 
 </head>
 <body>
@@ -25,14 +31,21 @@
                     </a>
                 </div>
             </div>
-            <p class="navbar-brand">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <div class="nav navbar-nav" style="margin-left:24vh;">
                     @if (Request.IsAuthenticated)
                     {
-                        <li>@Html.Partial("~/Views/Restricted/NavBar.cshtml")</li>
+                        <ul style="padding:0px;">
+                            <a class="navcentral" href="@Url.Action("Index", "Posts")">Notícias</a>
+                            <a class="navcentral" href="@Url.Action("Index", "Home")">Campeonato</a>
+                            <a class="navcentral" href="#">Times</a>
+                            <a class="navcentral" href="#">Sobre</a>
+                            <a class="navcentral" href="#">Ajuda</a>
+                            <div class="animation start-@ViewBag.teste"></div>
+                        </ul>
                     }
-                </ul>
+                </div>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
@@ -41,7 +54,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <div class="col-md-12" style="text-align:center;">
+            <div id="footer" class="col-md-12" style="text-align:center;">
                 <p>&copy; @DateTime.Now.Year - FutMobile - Todos os direitos reservados.</p>
             </div>
         </footer>
