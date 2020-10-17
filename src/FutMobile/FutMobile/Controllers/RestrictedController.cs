@@ -14,5 +14,10 @@ namespace FutMobile.Controllers
         {
             return View("Index");
         }
+
+        public ActionResult Ajuda()
+        {
+            return View("Ajuda");
+        }
     }
 }

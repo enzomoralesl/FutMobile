@@ -10,7 +10,7 @@
         background-position-x: 70%;
     }
 
-   
+
 
     /* Slideshow container */
     .slideshow-container {
@@ -40,15 +40,15 @@
     .next {
         right: 0;
         border-radius: 3px 0 0 3px;
-        margin-right:-5%;
+        margin-right: -5%;
     }
 
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover, .next:hover {
-        background-color: rgba(0,0,0,0.8);
-        color:#fff;
-        text-decoration:none
-    }
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            color: #fff;
+            text-decoration: none
+        }
 
     /* Caption text */
     .text {
@@ -75,12 +75,18 @@
         .active, .dot:hover {
             background-color: #717171;
         }
-
 </style>
+
+<script>
+    window.onload = function () {
+        document.getElementById("indice").classList.remove();
+    };
+
+</script>
 
 <div class="fundo" style="height:100%; width:100%; color:#fff">
     <div class="row">
-        
+
     </div>
 
     <!-- Slideshow container -->
@@ -88,7 +94,7 @@
         <div class="col-md-12" style="text-align:center;">
             <br /><br />
             <img src="../../Utilities/LOGOMINI.png" width=200 height=90 />
-            
+
             <p class="lead"><br />Seja bem-vindo ao maior portal de notícias e informações sobre o futebol brasileiro.</p>
             <br /><br /><br /><br />
         </div>
@@ -125,8 +131,8 @@
                 </div>
 
                 <!-- Next and previous buttons -->
-                <a class="prev" onclick="plusSlides(-1)"><br/>&#10094;</a>
-                <a class="next" onclick="plusSlides(1)"><br/>&#10095;</a>
+                <a class="prev" onclick="plusSlides(-1)"><br />&#10094;</a>
+                <a class="next" onclick="plusSlides(1)"><br />&#10095;</a>
 
                 <br>
                 <!-- The dots/circles -->

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.teste = "wiki";
+    ViewBag.teste = "";
 }
 
 <!DOCTYPE html>
@@ -16,6 +16,9 @@
     <link rel="shortcut icon" href="../../Utilities/icone_basico.ico" />
 
 </head>
+
+
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -32,16 +35,16 @@
                 </div>
             </div>
             <div class="navbar-collapse collapse">
-                <div class="nav navbar-nav" style="margin-left:24vh;">
+                <div class="nav navbar-nav">
                     @if (Request.IsAuthenticated)
                     {
                         <ul style="padding:0px;">
+                            <a class="navcentral" href="@Url.Action("Index", "Home")">Home</a>
                             <a class="navcentral" href="@Url.Action("Index", "Posts")">Notícias</a>
-                            <a class="navcentral" href="@Url.Action("Index", "Home")">Campeonato</a>
+                            <a class="navcentral" href="#">Campeonato</a>
                             <a class="navcentral" href="#">Times</a>
-                            <a class="navcentral" href="#">Sobre</a>
-                            <a class="navcentral" href="#">Ajuda</a>
-                            <div class="animation start-@ViewBag.teste"></div>
+                            <a class="navcentral" href="@Url.Action("Ajuda", "Restricted")">Ajuda</a>
+                            <div id="indice" class="animation start-um"></div>
                         </ul>
                     }
                 </div>
@@ -54,7 +57,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <div id="footer" class="col-md-12" style="text-align:center;">
+            <div id="footer" class="col-md-12" style="text-align:center;position: fixed; left: 0; bottom: 0; width: 100%;">
                 <p>&copy; @DateTime.Now.Year - FutMobile - Todos os direitos reservados.</p>
             </div>
         </footer>
