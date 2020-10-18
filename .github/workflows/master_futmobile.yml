@@ -27,6 +27,9 @@ jobs:
     - name: Publish to folder
       run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
       
+    - name: Run Unit Tests
+      run: dotnet test "D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile.Tests"
+      
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
