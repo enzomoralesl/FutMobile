@@ -8480,7 +8480,7 @@ a:nth-child(6) {
 }
 
 .navcentral {
-    font-size: 12px;
+    font-size: 12px !important;
 }
 
     .navcentral:hover {
