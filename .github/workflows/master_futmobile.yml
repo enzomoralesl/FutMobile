@@ -22,7 +22,7 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
 
     - name: Restore NuGet packages
-      run: nuget restore "D:\a\FutMobile\FutMobile\src\FutMobile"
+      run: nuget restore "D:\a\FutMobile\FutMobile\src\FutMobile\"
 
     - name: Publish to folder
       run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
@@ -32,5 +32,5 @@ jobs:
       with:
         app-name: 'futmobile'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8fedbee00dba4627a76b52742f47716e }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fc1d8ae966bd4d1f801747ba03d91017 }}
         package: D:\a\FutMobile\FutMobile\src\FutMobile\published
