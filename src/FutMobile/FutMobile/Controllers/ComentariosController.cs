@@ -12,6 +12,7 @@ using FutMobile.Models;
 
 namespace FutMobile.Controllers
 {
+    [Authorize]
     public class ComentariosController : Controller
     {
         private ContextoComentario db = new ContextoComentario();

@@ -14,6 +14,7 @@ using Microsoft.AspNet.Identity;
 
 namespace FutMobile.Controllers
 {
+    [Authorize]
     public class PostsController : Controller
     {
         private Contexto db = new Contexto();
