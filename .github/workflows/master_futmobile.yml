@@ -20,9 +20,6 @@ jobs:
 
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v1.0.2
-      
-    - env:
-       DOTNET_NOLOGO: true
 
     - name: Restore NuGet packages
       run: nuget restore "D:\a\FutMobile\FutMobile\src\FutMobile\"
@@ -31,6 +28,8 @@ jobs:
       run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
       
     - name: Run Unit Tests
+      env:  
+        DOTNET_NOLOGO: true
       run: dotnet test "D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile.Tests"
       
     - name: Deploy to Azure Web App
