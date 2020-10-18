@@ -33,4 +33,4 @@ jobs:
         app-name: 'futmobile'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_8fedbee00dba4627a76b52742f47716e }}
-        package: D:\a\FutMobile\FutMobile\src\FutMobile\
+        package: D:\a\FutMobile\FutMobile\src\FutMobile\packages\
