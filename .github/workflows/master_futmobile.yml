@@ -30,7 +30,7 @@ jobs:
     - name: Run Unit Tests
       env:  
         DOTNET_NOLOGO: true
-      run: dotnet test "D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile.Tests"
+      run: dotnet test "D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile.Tests\bin\Debug\FutMobile.Tests.dll"
       
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
