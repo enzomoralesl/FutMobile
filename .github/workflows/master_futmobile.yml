@@ -25,12 +25,12 @@ jobs:
       run: nuget restore "D:\a\FutMobile\FutMobile\src\FutMobile"
 
     - name: Publish to folder
-      run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /p:WebPublishMethod=FileSystem /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\" /p:PackageAsSingleFile=false
-
+      run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
+      
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'futmobile'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_8fedbee00dba4627a76b52742f47716e }}
-        package: D:\a\FutMobile\FutMobile\src\FutMobile\packages\
+        package: D:\a\FutMobile\FutMobile\src\FutMobile\published
