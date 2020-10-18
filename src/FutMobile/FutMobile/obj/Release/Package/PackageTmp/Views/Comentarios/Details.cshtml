@@ -1,0 +1,66 @@
+﻿@model FutMobile.Models.Comentario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Comentario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CodigoDoPost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoDoPost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserLoginCom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserLoginCom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataCom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataCom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MsgCom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MsgCom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeCom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeCom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LikesCom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LikesCom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CodigoCom }) |
+    @Html.ActionLink("Voltar aos comentários", "BackToComents", new { id = TempData["PostID"] })
+</p>

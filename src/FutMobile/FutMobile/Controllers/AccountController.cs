@@ -74,6 +74,7 @@ namespace FutMobile.Controllers
             {
                 return View(model);
             }
+           
 
             var user = UserManager.FindByName(model.UserName);
             Debug.Write($"Login: {model.UserName}");
@@ -195,7 +196,7 @@ namespace FutMobile.Controllers
             }
 
             // Se chegamos até aqui e houver alguma falha, exiba novamente o formulário
-            return View(model);
+            return View("Home");
         }
 
         //

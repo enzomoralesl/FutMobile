@@ -1,0 +1,212 @@
+﻿@{
+    ViewBag.Title = "Ajuda";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+
+<style>
+    .div1 {
+        background-color: #008f39;
+        padding: 50px 15px 50px 15px;
+        width: 90%;
+        margin-left: 10%;
+        border-radius: 15px;
+        min-height: 80vh;
+        box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    }
+
+    .div2 {
+        background-color: dodgerblue;
+        padding: 15px 15px 15px 20px;
+        width: 25%;
+        position: absolute;
+        top: 25%;
+        border-radius: 5%;
+        box-shadow: 9px 7px 5px rgba(50, 50, 50, 0.77);
+    }
+
+    texto {
+        color: #fff;
+        font-size: 18px;
+    }
+
+    .selecao {
+        padding: 10px 0px 35px 0px;
+    }
+
+    .selecao:hover {
+        background-color: blue;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+
+    input[type=text], select , textarea{
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+</style>
+
+
+<script>
+    window.onload = function () {
+        document.getElementById("indice").className = "animation start-cinco";
+        document.getElementById('sobre').style.display = 'none';
+        document.getElementById('contato').style.display = 'none';
+    };
+
+    function ShowHideAjuda() {
+        var visible = document.getElementById('ajuda').style.display;
+        if (visible == 'none') {
+            document.getElementById('ajuda').style.display = 'block';
+            document.getElementById('sobre').style.display = 'none';
+            document.getElementById('contato').style.display = 'none';
+            console.log("teste1");
+        }
+    }
+
+    function ShowHideSobre() {
+        var visible = document.getElementById('sobre').style.display;
+        if (visible == 'none') {
+            document.getElementById('sobre').style.display = 'block';
+            document.getElementById('ajuda').style.display = 'none';
+            document.getElementById('contato').style.display = 'none';
+        }
+    }
+
+    function ShowHideContato() {
+        var visible = document.getElementById('contato').style.display;
+        if (visible == 'none') {
+            document.getElementById('contato').style.display = 'block';
+            document.getElementById('ajuda').style.display = 'none';
+            document.getElementById('sobre').style.display = 'none';
+        }
+    }
+</script>
+
+<body>
+    <div class="col-md-12">
+        <br />
+        <div class="div1">
+            <div id="ajuda" class="col-md-12" style="margin-left:20%; max-width: 80%; margin-top: -2%;">
+                <h2 style="color:#fff;">• Notícia</h2>
+                <texto>
+                    Nesta aba é possível acompanhar as notícias mais recentes do mundo da bola publicada por usuários ou pelos administradores do site.
+                    Você pode curtir a notícia e comentar se desejar.
+                    <br />
+                </texto>
+                <br />
+                <h2 style="color:#fff;">• Campeonato</h2>
+                <texto>
+                    Se você quer acompanhar o campeonato brasileiro nos mínimos detalhes, basta acessar essa aba.
+                    Nela é possível olhar a tabela do campeonato e suas principais histórias como maiores artilheiros, jogos históricos e etc.
+                    <br />
+                </texto>
+                <br />
+                <h2 style="color:#fff;">• Times</h2>
+                <texto>
+                    Acompanhe tudo sobre seu time de coração nesta aba. Tenha acesso a toda a história desde o nascimento até os grandes dias de glória.
+                    <br />
+                </texto>
+            </div>
+            <div id="sobre" class="col-md-12" style="margin-left:20%; max-width: 80%; text-align:center;">
+                <div class="col-md-12">
+                    <h2 style="color:#fff;">Sobre o FutMobile</h2>
+                    <br />
+                </div>
+                <texto>
+                    O FutMobile é uma plataforma única de conhecimento e curiosidades sobre o mundo do futebol.
+                    <br /><br />
+                    A principal intenção do site é reunir histórias, informações e notícias sobre os principais clubes do Brasil, sobre o campeonato e sobre o cotidiano do futebol.
+                    <br /><br />
+                    Destinado à qualquer pessoa que tenha interesse no assunto, o FutMobile é uma aplicação livre e acessível para todos.
+                    <br /><br />
+                    Foi desenvolvida por 4 amigos loucos por futebol: <br />Enzo Morales, Marcelo Silva, Victor Generato e Vitor Soares.
+                </texto>
+            </div>
+            <div id="contato" class="col-md-12" style="margin-left:20%; max-width: 80%;">
+                <div class="col-md-12" style="margin-top:-5%;">
+                    <h2 style="color:#fff;">Entre em contato conosco, deixe sua mensagem.</h2>
+                    <br />
+                </div>
+                <div class="col-md-6">
+                    <label style="color:#fff;" for="pnome">Primeiro nome:</label>
+                    <input type="text" id="pnome" name="pnome" placeholder="Insira seu primeiro nome...">
+                </div>
+                <div class="col-md-6">
+                    <label style="color:#fff;" for="sobrenome">Sobrenome:</label>
+                    <input type="text" id="sobrenome" name="sobrenome" placeholder="Insira seu sobrenome...">
+                </div>
+                <div class="col-md-6">
+                    <label style="color:#fff;" for="email">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Insira seu email...">
+                </div>
+                <div class="col-md-2">
+                    <label style="color:#fff;" for="ddd">DDD:</label>
+                    <input type="text" id="ddd" name="ddd" placeholder="DDD...">
+                </div>
+                <div class="col-md-4">
+                    <label style="color:#fff;" for="telefone">Telefone:</label>
+                    <input type="text" id="telefone" name="telefone" placeholder="Insira seu telefone...">
+                </div>
+                <div class="col-md-12">
+                    <label style="color:#fff;" for="mensagem">Mensagem:</label>
+                    <textarea style="max-width:100% !important;" id="mensagem" name="mensagem" placeholder="Insira sua mensagem..."></textarea>
+                </div>
+                <div class="col-md-12" style="text-align:right">
+                    <input type="submit" value="Enviar" class="btn btn-fut" />
+                </div>
+
+            </div>
+        </div>
+        <div class="div2">
+            <br />
+            <div class="selecao" onclick="ShowHideAjuda()">
+                <div class="col-md-2">
+                    <svg color="#fff" width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-question-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                    </svg>
+                </div>
+                <div class="col-md-10">
+                    <texto>Ajuda</texto>
+                </div>
+            </div>
+            <div><br /></div>
+            <div class="selecao" onclick="ShowHideSobre()">
+                <div class="col-md-2">
+                    <svg color="#fff" width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-info-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                        <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588z" />
+                        <circle cx="8" cy="4.5" r="1" />
+                    </svg>
+                </div>
+                <div class="col-md-10">
+                    <texto>Sobre</texto>
+                </div>
+            </div>
+            <div><br /></div>
+            <div class="selecao" onclick="ShowHideContato()">
+                <div class="col-md-2">
+                    <svg color="#fff" width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-telephone" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                    </svg>
+                </div>
+                <div class="col-md-10">
+                    <texto>Contato</texto>
+                </div>
+            </div>
+            <div><br /></div>
+        </div>
+        <br />
+
+    </div>
+</body>
+</html>

@@ -413,6 +413,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\FutMobile - Antigo.pubxml" />
+    <None Include="Properties\PublishProfiles\FutMobile - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FutMobile.pubxml" />
     <None Include="Scripts\jquery-3.5.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.5.1.js" />

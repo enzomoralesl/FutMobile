@@ -1,0 +1,185 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    body {
+        background-image: url(../../Utilities/fundo_principal.png);
+        background-color: #000;
+        background-size: 94%;
+        background-position-x: 70%;
+    }
+
+
+
+    /* Slideshow container */
+    .slideshow-container {
+        max-width: 1000px;
+        position: relative;
+        margin: auto;
+    }
+
+    /* Next & previous buttons */
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 30%;
+        width: 75px !important;
+        height: 75px !important;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 5px;
+        user-select: none;
+        margin-left: -5%;
+        text-align: center;
+    }
+
+    /* Position the "next button" to the right */
+    .next {
+        right: 0;
+        border-radius: 3px 0 0 3px;
+        margin-right: -5%;
+    }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+            color: #fff;
+            text-decoration: none
+        }
+
+    /* Caption text */
+    .text {
+        color: #fff;
+        font-size: 15px;
+        padding: 8px 12px;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+</style>
+
+<script>
+    window.onload = function () {
+        document.getElementById("indice").classList.remove();
+    };
+
+</script>
+
+<div class="fundo" style="height:100%; width:100%; color:#fff">
+    <div class="row">
+
+    </div>
+
+    <!-- Slideshow container -->
+    <div class="row">
+        <div class="col-md-12" style="text-align:center;">
+            <br /><br />
+            <img src="../../Utilities/LOGOMINI.png" width=200 height=90 />
+
+            <p class="lead"><br />Seja bem-vindo ao maior portal de notícias e informações sobre o futebol brasileiro.</p>
+            <br /><br /><br /><br />
+        </div>
+        <div class="col-md-12" style="background: rgba(0, 0, 0, .4); padding:20px;">
+            <div class="slideshow-container">
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides">
+                    <div class="text">
+                        <h2>Notícias</h2>
+                        <p>
+                            Notícias atualizadas e verificadas sobre tudo que está ocorrendo no mundo da bola.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <div class="text">
+                        <h2>Brasileirão</h2>
+                        <p>
+                            Aqui você encontra tudo sobre o maior campeonato brasileiro de futebol.
+                            Tabela atualizada, artilheiros, maiores campeões, e muito mais
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mySlides">
+                    <div class="text">
+                        <h2>Clubes</h2>
+                        <p>
+                            Quer saber mais sobre a história do seu clube de coração? <br />
+                            Venha conferir tim-tim por tim-tim. Desde a criação nos primórdios do futebol até o presente, passando pelas glórias do seu time favorito.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Next and previous buttons -->
+                <a class="prev" onclick="plusSlides(-1)"><br />&#10094;</a>
+                <a class="next" onclick="plusSlides(1)"><br />&#10095;</a>
+
+                <br>
+                <!-- The dots/circles -->
+                <div style="text-align:center">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+
+        if (n > slides.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = slides.length }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    window.onload = function () {
+        document.getElementById("footer").style.color = "#fff";
+    };
+
+</script>
