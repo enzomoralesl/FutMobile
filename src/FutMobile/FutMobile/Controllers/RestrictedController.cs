@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace FutMobile.Controllers
 {
+    [Authorize]
     public class RestrictedController : Controller
     {
         // GET: Restricted
-        [Authorize]
         public ActionResult Index()
         {
             return View("Index");

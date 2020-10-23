@@ -196,7 +196,7 @@ namespace FutMobile.Controllers
             }
 
             // Se chegamos até aqui e houver alguma falha, exiba novamente o formulário
-            return View("Home");
+            return View(model);
         }
 
         //
