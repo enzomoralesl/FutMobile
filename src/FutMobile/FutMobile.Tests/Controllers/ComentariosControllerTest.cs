@@ -7,7 +7,7 @@ using FluentAssertions;
 namespace FutMobile.Tests.Controllers
 {
     [TestClass]
-    class ComentariosControllerTest
+    public class ComentariosControllerTest
     {
         [TestMethod]
         public void CreateViewTest()
