@@ -1,4 +1,7 @@
-name: Deploy To Azure
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy WAR app to Azure Web App - futmobile
 
 on:
   push:
@@ -6,12 +9,12 @@ on:
       - master
 
 jobs:
-  build-test-and-deploy:
+  build-and-deploy:
     runs-on: 'windows-latest'
 
     steps:
     - uses: actions/checkout@master
-          
+
     - name: Setup MSBuild path
       uses: microsoft/setup-msbuild@v1.0.0
 
@@ -19,20 +22,15 @@ jobs:
       uses: NuGet/setup-nuget@v1.0.2
 
     - name: Restore NuGet packages
-      run: nuget restore "D:\a\FutMobile\FutMobile\src\FutMobile\"
+      run: nuget restore
 
     - name: Publish to folder
-      run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
-      
-    - name: Run Unit Tests
-      env:  
-        DOTNET_NOLOGO: true
-      run: dotnet test "D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile.Tests\bin\Debug\FutMobile.Tests.dll"
-      
+      run: msbuild /p:Configuration=Release /p:DeployOnBuild=true /t:WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=./published/ /p:PackageAsSingleFile=false
+
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
         app-name: 'futmobile'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_8fedbee00dba4627a76b52742f47716e }}
-        package: D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile\
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_bff7563205c44c0eb3828e1062da7c97 }}
+        package: ./published/
