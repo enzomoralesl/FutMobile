@@ -25,7 +25,7 @@ jobs:
       run: nuget restore "D:\a\FutMobile\FutMobile\src\FutMobile\"
 
     - name: Publish to folder
-      run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /t:WebPublish /p:WebPublishMethod=FileSystem /p:DeployOnBuild=true /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
+      run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
 
 
 
@@ -40,4 +40,4 @@ jobs:
         app-name: 'futmobile'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_67a966bd351a41fd9c2049ce84bd2b73 }}
-        package: D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile\
+        package: D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile\published\
