@@ -37,7 +37,7 @@ jobs:
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'futmobile2'
+        app-name: 'futmobile'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_67a966bd351a41fd9c2049ce84bd2b73 }}
         package: D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile\
