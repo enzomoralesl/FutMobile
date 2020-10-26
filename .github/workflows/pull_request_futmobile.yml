@@ -1,0 +1,30 @@
+name: Test Pull Request Build
+
+on:
+  pull_request:
+    branches:
+      - desenv
+
+jobs:
+  build-test-and-deploy:
+    runs-on: 'windows-latest'
+
+    steps:
+    - uses: actions/checkout@desenv
+          
+    - name: Setup MSBuild path
+      uses: microsoft/setup-msbuild@v1.0.0
+
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1.0.2
+
+    - name: Restore NuGet packages
+      run: nuget restore "D:\a\FutMobile\FutMobile\src\FutMobile\"
+
+    - name: Publish to folder
+      run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
+      
+    - name: Run Unit Tests
+      env:  
+        DOTNET_NOLOGO: true
+      run: dotnet test "D:\a\FutMobile\FutMobile\src\FutMobile\FutMobile.Tests\bin\Debug\FutMobile.Tests.dll"
