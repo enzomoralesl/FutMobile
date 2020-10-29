@@ -2,12 +2,8 @@
 
 *.DS_STORE
 
+*.DS_Store
+
 *.vs/
 
-TestResults/*
-
-.TestResults/*
-
 *.TestResults/
-
-TestResults/
