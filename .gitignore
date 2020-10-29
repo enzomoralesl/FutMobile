@@ -4,4 +4,10 @@
 
 *.vs/
 
+TestResults/*
+
+.TestResults/*
+
+*.TestResults/
+
 TestResults/
