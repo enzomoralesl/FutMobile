@@ -1,5 +1,7 @@
 *.env
 
-*.DS_Store
+*.DS_STORE
 
 *.vs/
+
+TestResults/
