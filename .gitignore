@@ -1,7 +1,3 @@
 *.env
 
 *.vs/
-
-FutMobile/src/FutMobile/TestResults/
-
-FutMobile/src/FutMobile/FutMobile.Tests/TestResults/
