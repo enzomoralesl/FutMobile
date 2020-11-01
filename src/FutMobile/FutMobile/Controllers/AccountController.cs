@@ -77,7 +77,6 @@ namespace FutMobile.Controllers
            
 
             var user = UserManager.FindByName(model.UserName);
-            Debug.Write($"Login: {model.UserName}");
 
             if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
             {

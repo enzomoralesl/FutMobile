@@ -1,4 +1,5 @@
-﻿@{
+﻿@model FutMobile.Models.ContactViewModel
+@{
     ViewBag.Title = "Ajuda";
 }
 
@@ -37,13 +38,13 @@
         padding: 10px 0px 35px 0px;
     }
 
-    .selecao:hover {
-        background-color: blue;
-        border-radius: 15px;
-        cursor: pointer;
-    }
+        .selecao:hover {
+            background-color: blue;
+            border-radius: 15px;
+            cursor: pointer;
+        }
 
-    input[type=text], select , textarea{
+    input[type=text], select, textarea {
         width: 100%;
         padding: 12px 20px;
         margin: 8px 0;
@@ -132,38 +133,42 @@
                 </texto>
             </div>
             <div id="contato" class="col-md-12" style="margin-left:20%; max-width: 80%;">
-                <div class="col-md-12" style="margin-top:-5%;">
-                    <h2 style="color:#fff;">Entre em contato conosco, deixe sua mensagem.</h2>
-                    <br />
-                </div>
-                <div class="col-md-6">
-                    <label style="color:#fff;" for="pnome">Primeiro nome:</label>
-                    <input type="text" id="pnome" name="pnome" placeholder="Insira seu primeiro nome...">
-                </div>
-                <div class="col-md-6">
-                    <label style="color:#fff;" for="sobrenome">Sobrenome:</label>
-                    <input type="text" id="sobrenome" name="sobrenome" placeholder="Insira seu sobrenome...">
-                </div>
-                <div class="col-md-6">
-                    <label style="color:#fff;" for="email">Email:</label>
-                    <input type="text" id="email" name="email" placeholder="Insira seu email...">
-                </div>
-                <div class="col-md-2">
-                    <label style="color:#fff;" for="ddd">DDD:</label>
-                    <input type="text" id="ddd" name="ddd" placeholder="DDD...">
-                </div>
-                <div class="col-md-4">
-                    <label style="color:#fff;" for="telefone">Telefone:</label>
-                    <input type="text" id="telefone" name="telefone" placeholder="Insira seu telefone...">
-                </div>
-                <div class="col-md-12">
-                    <label style="color:#fff;" for="mensagem">Mensagem:</label>
-                    <textarea style="max-width:100% !important;" id="mensagem" name="mensagem" placeholder="Insira sua mensagem..."></textarea>
-                </div>
-                <div class="col-md-12" style="text-align:right">
-                    <input type="submit" value="Enviar" class="btn btn-fut" />
-                </div>
-
+                @using (Html.BeginForm("Ajuda", "Restricted", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="col-md-12" style="margin-top:-5%;">
+                        <h2 style="color:#fff;">Entre em contato conosco, deixe sua mensagem.</h2>
+                        <br />
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#fff;" for="pnome">Primeiro nome:</label>
+                        @Html.TextBoxFor(m => m.Nome, new { placeholder = "Insiria seu Nome", @class = "form-control" })
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#fff;" for="sobrenome">Sobrenome:</label>
+                        @Html.TextBoxFor(m => m.Sobrenome, new { placeholder = "Insiria seu Sobrenome", @class = "form-control" })
+                    </div>
+                    <div class="col-md-6">
+                        <label style="color:#fff;" for="email">Email:</label>
+                        @Html.TextBoxFor(m => m.Email, new { placeholder = "Insiria seu Email", @class = "form-control" })
+                    </div>
+                    <div class="col-md-2">
+                        <label style="color:#fff;" for="ddd">DDD:</label>
+                        @Html.TextBoxFor(m => m.DDD, new { placeholder = "DDD", @class = "form-control" })
+                    </div>
+                    <div class="col-md-4">
+                        <label style="color:#fff;" for="telefone">Telefone:</label>
+                        @Html.TextBoxFor(m => m.Tel, new { placeholder = "Insiria seu Telefone", @class = "form-control" })
+                    </div>
+                    <div class="col-md-12">
+                        <label style="color:#fff;" for="mensagem">Mensagem:</label>
+                        @Html.TextAreaFor(m => m.Mensagem, new { style = "white-space:pre-wrap; max-height:100% !important; max-width:100% !important;", placeholder = "Insiria sua Mensagem", @class = "form-control" })
+                    </div>
+                    <div class="col-md-12" style="text-align:right">
+                        <input type="submit" value="Enviar" class="btn btn-fut" />
+                    </div>
+                }
             </div>
         </div>
         <div class="div2">
