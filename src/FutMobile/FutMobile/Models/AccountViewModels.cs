@@ -138,4 +138,35 @@ namespace FutMobile.Models
         [Display(Name = "E-mail")]
         public string Email { get; set; }
     }
+
+    public class ContactViewModel
+    {
+        [Required(ErrorMessage = "O campo Nome é requerido.")]
+        [StringLength(100, ErrorMessage = "O campo Nome deve ter no mínimo {2} caracteres.", MinimumLength = 3)]
+        [Display(Name = "Nome")]
+        public string Nome { get; set; }
+
+        [Required(ErrorMessage = "O campo Sobrenome é requerido.")]
+        [StringLength(100, ErrorMessage = "O campo Nome deve ter no mínimo {2} caracteres.", MinimumLength = 3)]
+        [Display(Name = "Sobrenome")]
+        public string Sobrenome { get; set; }
+
+        [Required(ErrorMessage = "O campo Email é requerido.")]
+        [EmailAddress]
+        [Display(Name = "E-mail")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "O campo Mensagem é requerido.")]
+        [DataType(DataType.MultilineText)]
+        [Display(Name = "Mensagem")]
+        public string Mensagem { get; set; }
+
+        [Required(ErrorMessage = "O campo DDD é requerido.")]
+        [Display(Name = "Mensagem")]
+        public int DDD { get; set; }
+
+        [Required(ErrorMessage = "O campo Telefone é requerido.")]
+        [Display(Name = "Mensagem")]
+        public int Tel { get; set; }
+    }
 }
