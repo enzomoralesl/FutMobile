@@ -10,7 +10,9 @@ jobs:
     runs-on: 'windows-latest'
 
     steps:
-    - uses: actions/checkout@desenv
+    - uses: actions/checkout@v2
+      with:
+        ref: desenv
           
     - name: Setup MSBuild path
       uses: microsoft/setup-msbuild@v1.0.0
