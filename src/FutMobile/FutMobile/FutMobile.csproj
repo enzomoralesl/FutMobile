@@ -560,6 +560,9 @@
     <Content Include="Views\Comentarios\Edit.cshtml" />
     <Content Include="Views\Comentarios\Index.cshtml" />
     <Content Include="Views\Restricted\Ajuda.cshtml" />
+    <Content Include="Views\Manage\ListUsers.cshtml" />
+    <Content Include="Views\Manage\EditUser.cshtml" />
+    <Content Include="Views\Manage\DeleteUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
