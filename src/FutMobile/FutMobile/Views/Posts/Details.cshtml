@@ -62,7 +62,7 @@
 
                 <!--//Esta redirecionando errado + não consigo editar apenas alguns campos-->
                 <td>
-                    @if (User.Identity.Name == item.UserLoginCom)
+                    @if (User.Identity.Name == item.UserLoginCom || User.IsInRole("Administrator"))
                     {
                         
                         <a href="@Url.Action("Edit", "Comentarios",new { id=item.CodigoCom })">Edit</a> @:|

@@ -7,6 +7,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using FutMobile.Models;
+using System.Net;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace FutMobile.Controllers
 {
@@ -73,6 +76,113 @@ namespace FutMobile.Controllers
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
             return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult ListUsers()
+        {
+            var users = UserManager.Users;
+            // Query example: var users2 = UserManager.Users.Where(x => x.Login.Contains("Marcelo"));
+            return View(users);
+        }
+
+        // POST: Posts/Delete/5
+        [HttpPost, ActionName("ListUsers")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ListUsers(string name)
+        {
+            string nome = Convert.ToString(Request.Form["text1"]);
+            var users = UserManager.Users.Where(x => x.Login.Contains(nome));
+            return View("ListUsers", users);
+        }
+
+        //
+        // GET: /Manage/ChangePassword
+        public async Task<ActionResult> EditUser(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+
+            EditUserViewModel model = new EditUserViewModel { Email = user.Email, Id = user.Id, Login = user.UserName, UserName = user.Login };
+
+            return View(model);
+        }
+
+        //
+        // POST: /Manage/ChangePassword
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditUser(EditUserViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var user = await UserManager.FindByIdAsync(model.Id);
+
+            user.Email = model.Email;
+            user.Login = model.UserName;
+            user.UserName = model.Login;
+
+            await UserManager.UpdateAsync(user);
+
+            var users = UserManager.Users;
+
+            return View("ListUsers", users);
+        }
+
+        // GET: Posts/Delete/5
+        public async Task<ActionResult> DeleteUser(string id)
+        {
+            var user = await UserManager.FindByIdAsync(id);
+
+            EditUserViewModel model = new EditUserViewModel { Email = user.Email, Id = user.Id, Login = user.UserName, UserName = user.Login };
+
+            return View(model);
+        }
+
+        // POST: Posts/Delete/5
+        [HttpPost, ActionName("DeleteUser")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteUser(EditUserViewModel model)
+        {
+            /*
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            
+            var user = await UserManager.FindByIdAsync(model.Id);
+            /*
+            UserManager.Delete(user);
+            
+
+            var results = await UserManager.DeleteAsync(user);
+
+            var users = UserManager.Users;
+            if (results.Succeeded)
+            {
+                return View("ListUsers", users);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            */
+            var user = await UserManager.FindByIdAsync(model.Id);
+
+            using (SqlConnection sqlCon = new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString()))
+            {
+                sqlCon.Open();
+
+                string query = "DELETE FROM AspNetUsers WHERE Id = @Id";
+                SqlCommand sqlCmd = new SqlCommand(query, sqlCon);
+                sqlCmd.Parameters.AddWithValue("@Id", user.Id);
+                sqlCmd.ExecuteNonQuery();
+            }
+
+            var users = UserManager.Users;
+            return View("ListUsers", users);
         }
 
         //

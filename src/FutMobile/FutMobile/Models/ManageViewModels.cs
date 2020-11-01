@@ -83,4 +83,23 @@ namespace FutMobile.Models
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
     }
+
+    public class EditUserViewModel
+    {
+        [Required(ErrorMessage = "O campo ID é requerido.")]
+        [Display(Name = "Id")]
+        public string Id { get; set; }
+
+        [Required(ErrorMessage = "O campo Email é requerido.")]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required(ErrorMessage = "O campo Username é requerido.")]
+        [Display(Name = "Nome")]
+        public string UserName { get; set; }
+
+        [Required(ErrorMessage = "O campo Login é requerido.")]
+        [Display(Name = "Login")]
+        public string Login { get; set; }
+    }
 }

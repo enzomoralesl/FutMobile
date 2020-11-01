@@ -52,7 +52,7 @@
         @if (ListaDeLikes[0] != ""){ <td>@ListaDeLikes.Count</td>}
 
 <td>
-            @if (User.Identity.Name == item.UserLoginCom)
+            @if (User.Identity.Name == item.UserLoginCom || User.IsInRole("Administrator"))
             {
                 @Html.ActionLink("Edit", "Edit", new { id = item.CodigoCom }) @: |
                 @Html.ActionLink("Delete", "Delete", new { id = item.CodigoCom }) @: |

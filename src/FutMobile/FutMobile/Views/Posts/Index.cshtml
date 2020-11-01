@@ -20,7 +20,7 @@
 <h2>Feed de Notícias</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Adicionar novo post", "Create")
 </p>
 
 @foreach (var item in Model.Reverse())
@@ -124,7 +124,7 @@
             }
 
             <td>
-                @if (User.Identity.Name == item.UserLogin)
+                @if (User.Identity.Name == item.UserLogin || User.IsInRole("Administrator"))
                 {
                     @Html.ActionLink("Edit", "Edit", new { id = item.Codigo }) @: |
                     @Html.ActionLink("Delete", "Delete", new { id = item.Codigo }) @: |
