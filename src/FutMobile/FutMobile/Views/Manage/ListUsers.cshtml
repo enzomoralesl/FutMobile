@@ -13,14 +13,10 @@
     @Html.AntiForgeryToken()
 
     <div class="form-group">
-        Buscar usuário por nome:
-        <div class="col-md-10">
-            <input type="text" id="text1" name="text1" />
+        <div class="col-md-12" style="padding:0px; text-align:left;">
+            <input type="text" id="text1" name="text1" placeholder="Buscar usuário por nome:" style="width:450px !important;" />
+            <input type="submit" value="Buscar" class="btn btn-default" /> 
         </div>
-    </div>
-
-    <div class="form-actions no-color">
-        <input type="submit" value="Buscar" class="btn btn-default" /> |
     </div>
 }
 

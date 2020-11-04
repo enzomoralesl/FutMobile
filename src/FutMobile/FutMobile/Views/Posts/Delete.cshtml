@@ -4,45 +4,68 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+@{
+    Layout = null;
+}
+
+<script>
+    window.onload = function () {
+        document.getElementById("indice").className = "animation start-dois";
+        $('[id^=esconder_]').hide();
+    };
+</script>
 
 @if (User.Identity.Name == Model.UserLogin)
 {
-    <h3>Tem certeza que deseja deletar este post?</h3>
     <div>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Titulo)
-            </dt>
+        <h4 style="text-align:center;">Deseja realmente deletar esse post? <br/><br /></h4>
+        <dl class="col-md-12">
+            <div class="col-md-2" style="text-align:left;">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Titulo):
+                </dt>
+            </div>
+            <div class="col-md-10" style="text-align:left;">
+                <dd>
+                    @Html.DisplayFor(model => model.Titulo)
+                    <br/><br />
+                </dd>
+            </div>
+            <div class="col-md-2" style="text-align:left;">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Categoria):
+                </dt>
+            </div>
+            <div class="col-md-10" style="text-align:left;">
+                <dd>
+                    @Html.DisplayFor(model => model.Categoria)
+                    <br /><br />
+                </dd>
+            </div>
 
-            <dd>
-                @Html.DisplayFor(model => model.Titulo)
-            </dd>
+            <div class="col-md-2" style="text-align:left;">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Data):
+                </dt>
+            </div>
+            <div class="col-md-10" style="text-align:left;">
+                <dd>
+                    @Html.DisplayFor(model => model.Data)
+                    <br /><br />
+                </dd>
+            </div>
 
-            <dt>
-                @Html.DisplayNameFor(model => model.Categoria)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Categoria)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Data)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Data)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Msg)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Msg)
-            </dd>
+            <div class="col-md-2" style="text-align:left;">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Msg):
+                </dt>
+            </div>
+            <div class="col-md-10" style="text-align:left;">
+                <dd>
+                    @Html.DisplayFor(model => model.Msg)
+                    <br /><br />
+                </dd>
+            </div>
 
         </dl>
 
@@ -50,13 +73,17 @@
         {
             @Html.AntiForgeryToken()
 
-            <div class="form-actions no-color">
-                <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+            <div class="form-horizontal">
+                <div class="form-group" style="text-align:right;">
+                    <div class="col-md-12">
+                        <input type="submit" value="Deletar" class="btn btn-fut" style="height:30px; padding:0px;" />
+                    </div>
+                </div>
             </div>
         }
     </div>
 }
 
-else {<h2>Usuario não autorizado a deletar este post</h2> }
+else
+{<h2>Usuario não autorizado a deletar este post</h2>}
 

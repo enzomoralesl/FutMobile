@@ -74,7 +74,7 @@ namespace FutMobile.Controllers
                 comentario.LikesCom = "";
                 db.Comentario.Add(comentario);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Posts", new { id = comentario.CodigoDoPost });
+                return RedirectToAction("Index", "Posts", new { id = comentario.CodigoDoPost });
             }
 
             return View(comentario);
@@ -104,7 +104,7 @@ namespace FutMobile.Controllers
                             post.LikesCom = post.LikesCom.Replace(ListaDeLikes[i], "");
                             db.Entry(post).State = EntityState.Modified;
                             db.SaveChanges();
-                            return RedirectToAction("Details", "Posts", new { id = post.CodigoDoPost });
+                            return RedirectToAction("Index", "Posts", new { id = post.CodigoDoPost });
                         }
                         else
                         {
@@ -120,7 +120,7 @@ namespace FutMobile.Controllers
                             post.LikesCom = post.LikesCom.Replace(toRemove, "");
                             db.Entry(post).State = EntityState.Modified;
                             db.SaveChanges();
-                            return RedirectToAction("Details", "Posts", new { id = post.CodigoDoPost });
+                            return  RedirectToAction("Index", "Posts", new { id = post.CodigoDoPost });
                         }
                     }
                 }
@@ -129,7 +129,7 @@ namespace FutMobile.Controllers
                 else post.LikesCom = post.LikesCom + "," + User.Identity.Name;
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details", "Posts", new { id = post.CodigoDoPost });
+                return RedirectToAction("Index", "Posts", new { id = post.CodigoDoPost });
             }
         }
 
@@ -163,7 +163,7 @@ namespace FutMobile.Controllers
                 var currentComment = db.Comentario.Find(comentario.CodigoCom);
                 currentComment.MsgCom = comentario.MsgCom;
                 db.SaveChanges();
-                return RedirectToAction("Details", "Posts", new { id = currentComment.CodigoDoPost });
+                return RedirectToAction("Index", "Posts", new { id = currentComment.CodigoDoPost });
             }
             return View(comentario);
         }
@@ -194,7 +194,7 @@ namespace FutMobile.Controllers
             Comentario comentario = db.Comentario.Find(id);
             db.Comentario.Remove(comentario);
             db.SaveChanges();
-            return RedirectToAction("Details", "Posts", new { id = comentario.CodigoDoPost });
+            return RedirectToAction("Index", "Posts", new { id = comentario.CodigoDoPost });
         }
 
         protected override void Dispose(bool disposing)
