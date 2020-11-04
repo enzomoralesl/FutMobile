@@ -72,8 +72,6 @@ C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\SendGrid.dll
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\StarkbankEcdsa.dll
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.IO.Compression.dll
-C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Net.Http.dll
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Web.Helpers.dll
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Web.Mvc.dll
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Web.Optimization.dll
@@ -1071,3 +1069,8 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\admincontrol\FutMobile\sr
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\admincontrol\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.csproj.CopyComplete
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\admincontrol\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\admincontrol\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.pdb
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Net.Http.dll
