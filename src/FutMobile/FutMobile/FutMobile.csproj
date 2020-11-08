@@ -325,13 +325,17 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Context\Contexto.cs" />
+    <Compile Include="Context\ContextoCampeonato.cs" />
     <Compile Include="Context\ContextoComentario.cs" />
+    <Compile Include="Context\ContextoTime.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CampeonatosController.cs" />
     <Compile Include="Controllers\ComentariosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\RestrictedController.cs" />
+    <Compile Include="Controllers\TimesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -375,12 +379,19 @@
     <Compile Include="Migrations\202010061842534_AddedComments.designer.cs">
       <DependentUpon>202010061842534_AddedComments.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202011082142282_RetiradaRequiredTime.cs" />
+    <Compile Include="Migrations\202011082142282_RetiradaRequiredTime.designer.cs">
+      <DependentUpon>202011082142282_RetiradaRequiredTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Campeonato.cs" />
     <Compile Include="Models\Comentario.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MotivoModel.cs" />
     <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\Time.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\Vars.cs" />
@@ -563,9 +574,26 @@
     <Content Include="Views\Manage\ListUsers.cshtml" />
     <Content Include="Views\Manage\EditUser.cshtml" />
     <Content Include="Views\Manage\DeleteUser.cshtml" />
+    <Content Include="Views\Times\Create.cshtml" />
+    <Content Include="Views\Times\Delete.cshtml" />
+    <Content Include="Views\Times\Details.cshtml" />
+    <Content Include="Views\Times\Edit.cshtml" />
+    <Content Include="Views\Times\Index.cshtml" />
+    <Content Include="Views\Campeonatos\Create.cshtml" />
+    <Content Include="Views\Campeonatos\Delete.cshtml" />
+    <Content Include="Views\Campeonatos\Details.cshtml" />
+    <Content Include="Views\Campeonatos\Edit.cshtml" />
+    <Content Include="Views\Campeonatos\Index.cshtml" />
+    <Content Include="Views\Campeonatos\AwaitingApproval.cshtml" />
+    <Content Include="Views\Times\AwaitingApproval.cshtml" />
+    <Content Include="Views\Times\EspecificaMotivo.cshtml" />
+    <Content Include="Views\Campeonatos\EspecificaMotivo.cshtml" />
+    <Content Include="Views\Campeonatos\EspeMotivo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Utilities\LogosCamps\" />
+    <Folder Include="Utilities\LogosTimes\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -602,6 +630,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010061842534_AddedComments.resx">
       <DependentUpon>202010061842534_AddedComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011082142282_RetiradaRequiredTime.resx">
+      <DependentUpon>202011082142282_RetiradaRequiredTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@
     };
 </script>
 
-@if (User.Identity.Name == Model.UserLogin)
+@if (User.Identity.Name == Model.UserLogin || User.IsInRole("Administrator"))
 {
     <div>
         <h4 style="text-align:center;">Deseja realmente deletar esse post? <br/><br /></h4>

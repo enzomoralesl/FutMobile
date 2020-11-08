@@ -1,0 +1,104 @@
+﻿@model FutMobile.Models.Time
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Time</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrasaoPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrasaoPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fundacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fundacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resumo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resumo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTitulos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTitulos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mundial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mundial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Libertadores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Libertadores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brasileiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brasileiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CopaDoBrasil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CopaDoBrasil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estadual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estadual)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

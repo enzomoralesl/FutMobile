@@ -1,0 +1,58 @@
+﻿@model FutMobile.Models.Campeonato
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Campeonato</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeCamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeCamp)
+        </dd>
+
+        <dt>
+            Logo
+        </dt>
+
+        <dd>
+            <img src="../@Model.SimboloCampPath" width="250" height="250">
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimeiraEdicao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimeiraEdicao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoCamp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoCamp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrincipaisArtilheiros)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrincipaisArtilheiros)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CodigoCamp }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

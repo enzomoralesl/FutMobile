@@ -1,0 +1,98 @@
+﻿@model FutMobile.Models.Time
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Time</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeTime)
+        </dd>
+
+        <dt>
+            Escudo
+        </dt>
+
+        <dd>
+            <img src="../@Model.BrasaoPath" width="250" height="250">
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fundacao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fundacao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resumo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resumo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResumoTitulos)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResumoTitulos)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mundial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mundial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Libertadores)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Libertadores)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Brasileiro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brasileiro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CopaDoBrasil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CopaDoBrasil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Estadual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estadual)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CodigoTime }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
