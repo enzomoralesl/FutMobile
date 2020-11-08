@@ -7,17 +7,17 @@ using FutMobile.Models;
 
 namespace FutMobile.Context
 {
-    public class ContextoComentario : DbContext
+    public class ContextoTime : DbContext
     {
-        public DbSet<Comentario> Comentario { get; set; }
+        public DbSet<Time> Time { get; set; }
 
-        public ContextoComentario() : base("DefaultConnection")
+        public ContextoTime() : base("DefaultConnection")
         {
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<ContextoComentario>(null);
+            Database.SetInitializer<ContextoTime>(null);
             base.OnModelCreating(modelBuilder);
         }
     }

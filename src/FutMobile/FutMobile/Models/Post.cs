@@ -19,7 +19,6 @@ namespace FutMobile.Models
         public string Msg { get; set; }
         public string Nome { get; set; }
 
-        // Teste -> irá guardar login dos usuarios que deram like
         [Display(Name = "Numero de Likes")]
         public string Likes { get; set; }
     }

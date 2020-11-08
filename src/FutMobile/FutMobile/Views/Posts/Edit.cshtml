@@ -10,7 +10,7 @@
     };
 </script>
 
-@if (User.Identity.Name == Model.UserLogin)
+@if (User.Identity.Name == Model.UserLogin || User.IsInRole("Administrator"))
 {
     using (Html.BeginForm())
     {
