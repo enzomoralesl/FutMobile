@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using FutMobile.Models;
 using System.Diagnostics;
 using FutMobile.Utilities;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace FutMobile.Controllers
 {
@@ -77,7 +78,6 @@ namespace FutMobile.Controllers
            
 
             var user = UserManager.FindByName(model.UserName);
-            Debug.Write($"Login: {model.UserName}");
 
             if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
             {
@@ -178,6 +178,24 @@ namespace FutMobile.Controllers
                 if (result.Succeeded)
                 {
                     await UserManager.AddClaimAsync(user.Id, new Claim("FullName", user.Login));
+
+                    /* ADD ADM
+                    var context = new ApplicationDbContext();
+
+                    var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+                    string roleName = "Administrator";
+                    IdentityResult roleResult;
+
+                    // Check to see if Role Exists, if not create it
+                    if (!RoleManager.RoleExists(roleName))
+                    {
+                        roleResult = RoleManager.Create(new IdentityRole(roleName));
+                    }
+
+                    UserManager.AddToRole(user.Id, "Administrator");
+                    */
+
                     // Para obter mais informações sobre como habilitar a confirmação da conta e redefinição de senha, visite https://go.microsoft.com/fwlink/?LinkID=320771
                     // Enviar um email com este link
                     var code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);

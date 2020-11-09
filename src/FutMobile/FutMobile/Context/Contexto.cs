@@ -20,5 +20,9 @@ namespace FutMobile.Context
             Database.SetInitializer<Contexto>(null);
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<FutMobile.Models.EditUserViewModel> EditUserViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<FutMobile.Models.MotivoModel> MotivoModels { get; set; }
     }
 }

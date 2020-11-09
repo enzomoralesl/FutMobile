@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FutMobile.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Usuários Registrados";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<!DOCTYPE html>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-12" style="padding:0px; text-align:left;">
+            <input type="text" id="text1" name="text1" placeholder="Buscar usuário por nome:" style="width:450px !important;" />
+            <input type="submit" value="Buscar" class="btn btn-default" /> 
+        </div>
+    </div>
+}
+
+@if (Model.Any())
+{
+    <p>
+        @Html.ActionLink("Adicionar novo usuário", "Register", "Account")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                Login
+            </th>
+            <th>
+                Nome
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => user.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => user.Login)
+                </td>
+
+                <td>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        @Html.ActionLink("Edit", "EditUser", new { id = user.Id }) @: |
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = user.Id })
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}
+

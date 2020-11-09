@@ -17,7 +17,7 @@ namespace FutMobile.Context
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            Database.SetInitializer<Contexto>(null);
+            Database.SetInitializer<ContextoComentario>(null);
             base.OnModelCreating(modelBuilder);
         }
     }

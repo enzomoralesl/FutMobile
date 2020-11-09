@@ -3,7 +3,7 @@
     ViewBag.Title = "Gerenciar";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2>@ViewBag.Title</h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
@@ -23,6 +23,13 @@
             }
             ]
         </dd>
+        @if (User.IsInRole("Administrator"))
+        {
+            <dt>Usuários cadastrados:</dt>
+            <dd>
+                [ @Html.ActionLink("Visualizar", "ListUsers") ]
+            </dd>
+        }
         <!--
         <dt>Logins externos:</dt>
         <dd>

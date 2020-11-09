@@ -9,41 +9,106 @@
 }
 
 <style>
+    .btn-comment {
+        height: 30px !important;
+        width: 20px !important;
+        padding: 0px !important;
+        margin-top: 0px !important;
+    }
 </style>
 
 <script>
-        window.onload = function () {
-            document.getElementById("indice").className = "animation start-dois";
-        };
+    window.onload = function () {
+        document.getElementById("indice").className = "animation start-dois";
+        $('[id^=esconder_]').hide();
+    };
+
+    function Modal(id) {
+        var loadPage = "/Comentarios/Create/" + id;
+        $("#comment").load(loadPage);
+    }
+
+    function ShowModalEdit(id) {
+        var loadPage = "/Comentarios/Edit/" + id;
+        $("#EditComment").load(loadPage);
+    }
+
+    function ShowModalDelete(id) {
+        var loadPage = "/Comentarios/Delete/" + id;
+        $("#DeleteComment").load(loadPage);
+    }
+
+
+    function ShowModalDeletePost(id) {
+        var loadPage = "/Posts/Delete/" + id;
+        $("#DeletePostComment").load(loadPage);
+    }
+
+    function ShowHideComment(id) {
+        idComment = "#comment_" + id;
+        idCommentMostrar = "#mostrar_" + id;
+        idCommentEsconder = "#esconder_" + id;
+
+        console.log(idComment);
+
+        if ($(idCommentMostrar).is(':visible')) {
+            $(idCommentMostrar).hide();
+            $(idCommentEsconder).show();
+
+            var commentPage = "/Posts/Details/" + id;
+            $(idComment).load(commentPage);
+        }
+        else {
+            $(idCommentMostrar).show();
+            $(idCommentEsconder).hide();
+        }
+    }
 </script>
 
-<h2>Feed de Notícias</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<div class="col-md-12" style="text-align:center;">
+    <h2>Feed de Notícias</h2>
+    <a href="/Posts/Create">
+        <input type="submit" value="Criar Post" class="btn btn-fut" style="height:30px; width:30px; padding:0px;" />
+    </a>
+    <div class="col-md-12" style="padding:0px;"><br /></div>
+</div>
+
+
+
 
 @foreach (var item in Model.Reverse())
 {
     <div class="row" style="padding:10px;">
         <div class="col-md-12 backgroungLogin">
-            <div class="col-md-12">
+            <div class="col-md-12" style="border-bottom: 2px solid #f0f0f0;">
                 <div class="col-md-6" style="text-align:left; font-weight: bolder; font-size: 20px; padding:0px;">
-                    @Html.DisplayFor(modelItem => item.Titulo)
+                    @Html.DisplayFor(modelItem => item.Titulo) 
                 </div>
                 <div class="col-md-6" style="text-align: right; font-size: 11px; padding:0px;">
-                    @Html.DisplayFor(modelItem => item.Data)
-                    | Publicado por:
-                    @Html.DisplayFor(modelItem => item.Nome)
+                    Categoria: @Html.DisplayFor(modelItem => item.Categoria) |
+                    Criado em: @Html.DisplayFor(modelItem => item.Data) |
+                    Publicado por: @Html.DisplayFor(modelItem => item.Nome) |
+                    @if (User.Identity.Name == item.UserLogin || User.IsInRole("Administrator"))
+                    {
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Codigo }) @: |
+                        <a href="#" onclick="ShowModalDeletePost(@item.Codigo)" data-toggle="modal" data-target="#DeletePostModal">Deletar</a>
+                    }
                 </div>
+                <div class="col-md-12" style="padding:0px;"><br /></div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12" style="border-bottom: 2px solid #f0f0f0;">
                 <br />
                 @Html.DisplayFor(modelItem => item.Msg)
+                <br /><br />
             </div>
             <div class="col-md-12" style="text-align:right; padding:0px;">
-                <div class="col-md-10" style="width: 93.5%"></div>
-                <div class="col-md-1" style="width: 2.9%; padding:0px;" title="Curtir Notícia">
+                <br />
+                <div class="col-md-9" style="width: 82%"></div>
+                <div class="col-md-1" style="width: 10%; padding:0px; text-align:left;" title="Comentar">
+                    <input type="submit" value="Comentar" onclick="Modal(@item.Codigo)" class="btn btn-fut btn-comment" data-toggle="modal" data-target="#myModal" />
+                </div>
+                <div class="col-md-1" style="width: 3%; padding:0px;" title="Curtir Notícia">
                     <a href="/Posts/AddLike/@item.Codigo">
                         <div class="like">
                             <svg style="margin-top:3px;" width="20px" height="20px" viewBox="0 0 16 16" class="bi bi-hand-thumbs-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +117,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-1" style="margin-top:6px; width:1%; height: 35px;">
+                <div class="col-md-1" style="margin-top:6px; width:3%; height: 35px; text-align:left;">
                     @{ List<string> ListaDeLikes = item.Likes.Split(',').ToList(); }
 
                     @if (ListaDeLikes[0] == "")
@@ -64,76 +129,94 @@
                         @ListaDeLikes.Count
                     }
                 </div>
+                <div class="col-md-12" style="text-align:center;">
+                    <div id="mostrar_@item.Codigo">
+                        <a onclick="ShowHideComment(@item.Codigo)" style="cursor:pointer">
+                            <svg id="up" width="15px" height="15px" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                            Mostrar comentários
+                        </a>
+                    </div>
+                    <div id="esconder_@item.Codigo">
+                        <a onclick="ShowHideComment(@item.Codigo)" style="cursor:pointer">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z" />
+                            </svg>
+                            Esconder comentários<br /><br />
+                        </a>
+                        <div id="comment_@item.Codigo" class="col-md-12"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 }
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Titulo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Msg)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Likes)
-        </th>
-        <th></th>
-    </tr>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-    @foreach (var item in Model.Reverse())
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Categoria)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Titulo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Msg)
-            </td>
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Comentários</h4>
+            </div>
+            <div id="comment" class="modal-body">
+            </div>
+        </div>
 
-            @{ List<string> ListaDeLikes = item.Likes.Split(',').ToList(); }
+    </div>
+</div>
 
-            @if (ListaDeLikes[0] == "")
-            {
-                <td>0</td>
-            }
-            @if (ListaDeLikes[0] != "")
-            {
-                <td>@ListaDeLikes.Count</td>
-            }
+<!-- Modal -->
+<div id="EditModal" class="modal fade" role="dialog">
+    <div id="EditModalDialog" class="modal-dialog">
 
-            <td>
-                @if (User.Identity.Name == item.UserLogin)
-                {
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Codigo }) @: |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Codigo }) @: |
-                }
-                @Html.ActionLink("Details", "Details", new { id = item.Codigo }) |
-                @Html.ActionLink("Like", "AddLike", new { id = item.Codigo }) |
-                @Html.ActionLink("Comentar", "AddComment", new { id = item.Codigo })
-            </td>
-        </tr>
-    }
+        <!-- Modal content-->
+        <div id="EditModalContent" class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Editar Comentário</h4>
+            </div>
+            <div id="EditComment" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
 
-</table>
+
+<!-- Modal -->
+<div id="DeleteModal" class="modal fade" role="dialog">
+    <div id="DeleteModalDialog" class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="DeleteModalContent" class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Deletar</h4>
+            </div>
+            <div id="DeleteComment" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div id="DeletePostModal" class="modal fade" role="dialog">
+    <div id="DeletePostModalDialog" class="modal-dialog">
+
+        <!-- Modal content-->
+        <div id="DeletePostModalContent" class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Deletar</h4>
+            </div>
+            <div id="DeletePostComment" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
