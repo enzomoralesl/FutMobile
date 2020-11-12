@@ -207,7 +207,6 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\StarkbankEcdsa.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Diagnostics.DiagnosticSource.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.IO.Compression.dll
-C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Net.Http.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Web.Helpers.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Web.Mvc.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Web.Optimization.dll
@@ -1228,3 +1227,12 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\timesecamp\FutMobile\src\
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\timesecamp\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.pdb
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\timesecamp\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.csprojAssemblyReference.cache
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\timesecamp\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.RetiradaRequiredTime.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Net.Http.Formatting.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Web.Http.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Web.Http.WebHost.dll
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Net.Http.Formatting.xml
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Web.Http.xml
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Web.Http.WebHost.xml
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.RetiradaRequiredTime.resources
+C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Net.Http.dll

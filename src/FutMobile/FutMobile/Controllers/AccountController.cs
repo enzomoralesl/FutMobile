@@ -240,6 +240,8 @@ namespace FutMobile.Controllers
 
             if (result.Succeeded)
             {
+                var user = await UserManager.FindByIdAsync(userId);
+                ViewBag.ChaveAPI = user.SecurityStamp;
                 return View();
             }
 
