@@ -10,6 +10,6 @@
     </div>
     <h2>@ViewBag.Title.</h2>
     <p>
-        Obrigado por confirmar seu e-mail. @Html.ActionLink("Clique aqui para entrar", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+        Obrigado por confirmar seu e-mail. <br />Sua chave API é a seguinte: @ViewBag.ChaveAPI<br/>@Html.ActionLink("Clique aqui para entrar", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
     </p>
 </div>
