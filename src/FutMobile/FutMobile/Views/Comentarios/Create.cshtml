@@ -21,7 +21,7 @@
                 <p>Insira seu comentário:</p>
             </div>
             <div class="col-md-12">
-                @Html.EditorFor(model => model.MsgCom, new { htmlAttributes = new { @class = "form-control", @style = "max-width:100% !important;" } })
+                @Html.TextAreaFor(model => model.MsgCom, new { htmlAttributes = new { @class = "form-control", @style = "max-width:100% !important;" } })
                 @Html.ValidationMessageFor(model => model.MsgCom, "", new { @class = "text-danger" })
             </div>
         </div>

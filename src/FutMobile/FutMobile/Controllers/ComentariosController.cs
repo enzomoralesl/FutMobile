@@ -68,6 +68,10 @@ namespace FutMobile.Controllers
         {
             if (ModelState.IsValid)
             {
+                string mensagemeditada = comentario.MsgCom.Replace(Environment.NewLine, "<br />");
+
+                comentario.MsgCom = mensagemeditada;
+
                 comentario.DataCom = DateTime.Now;
                 comentario.UserLoginCom = User.Identity.Name;
                 comentario.NomeCom = ((ClaimsIdentity)User.Identity).FindFirst("FullName").ToString().Replace("FullName: ", "");
@@ -148,6 +152,8 @@ namespace FutMobile.Controllers
 
             TempData["PostID"] = id;
 
+            comentario.MsgCom = comentario.MsgCom.Replace("<br />", Environment.NewLine);
+
             return View(comentario);
         }
 
@@ -160,6 +166,10 @@ namespace FutMobile.Controllers
         {
             if (ModelState.IsValid)
             {
+                string mensagemeditada = comentario.MsgCom.Replace(Environment.NewLine, "<br />");
+
+                comentario.MsgCom = mensagemeditada;
+
                 var currentComment = db.Comentario.Find(comentario.CodigoCom);
                 currentComment.MsgCom = comentario.MsgCom;
                 db.SaveChanges();

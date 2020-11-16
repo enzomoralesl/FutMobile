@@ -25,6 +25,16 @@ namespace FutMobile.Controllers
             return View(db.Campeonato.ToList());
         }
 
+        // POST: Campeonatos
+        [HttpPost, ActionName("Index")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(string name)
+        {
+            string nome = Convert.ToString(Request.Form["text1"]);
+            var camps = db.Campeonato.ToList().Where(x => x.NomeCamp.Contains(nome));
+            return View("Index", camps);
+        }
+
         // GET: Campeonatos/Details/5
         public ActionResult Details(int? id)
         {
@@ -60,6 +70,14 @@ namespace FutMobile.Controllers
         {
             if (ModelState.IsValid)
             {
+                string resumoEditado = campeonato.ResumoCamp.Replace(Environment.NewLine, "<br />");
+
+                campeonato.ResumoCamp = resumoEditado;
+
+                string ArtilheirosEditado = campeonato.PrincipaisArtilheiros.Replace(Environment.NewLine, "<br />");
+
+                campeonato.PrincipaisArtilheiros = ArtilheirosEditado;
+
                 string fileName = Path.GetFileNameWithoutExtension(campeonato.ImageFile.FileName);
                 string extension = Path.GetExtension(campeonato.ImageFile.FileName);
                 fileName = fileName + extension;
@@ -92,6 +110,11 @@ namespace FutMobile.Controllers
             {
                 return HttpNotFound();
             }
+
+            campeonato.ResumoCamp = campeonato.ResumoCamp.Replace("<br />", Environment.NewLine);
+
+            campeonato.PrincipaisArtilheiros = campeonato.PrincipaisArtilheiros.Replace("<br />", Environment.NewLine);
+
             return View(campeonato);
         }
 
@@ -106,6 +129,14 @@ namespace FutMobile.Controllers
             {
                 if (User.IsInRole("Administrator"))
                 {
+                    string resumoEditado = campeonato.ResumoCamp.Replace(Environment.NewLine, "<br />");
+
+                    campeonato.ResumoCamp = resumoEditado;
+
+                    string ArtilheirosEditado = campeonato.PrincipaisArtilheiros.Replace(Environment.NewLine, "<br />");
+
+                    campeonato.PrincipaisArtilheiros = ArtilheirosEditado;
+
                     string fileName = Path.GetFileNameWithoutExtension(campeonato.ImageFile.FileName);
                     string extension = Path.GetExtension(campeonato.ImageFile.FileName);
                     fileName = fileName + extension;

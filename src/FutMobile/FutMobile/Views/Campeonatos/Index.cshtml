@@ -11,11 +11,23 @@
     };
 </script>
 
-<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-12" style="padding:0px; text-align:left;">
+            <input type="text" id="text1" name="text1" placeholder="Buscar campeonato pelo nome" style="width:450px !important;" />
+            <input type="submit" value="Buscar" class="btn btn-default" />
+        </div>
+    </div>
+}
 
 <p>
-    @if (User.IsInRole("Administrator")) { <h4>@Html.ActionLink("Adicionar novo campeonato", "Create")</h4> }
-    @if (!User.IsInRole("Administrator")) { <h4>@Html.ActionLink("Sugerir novo campeonato", "Create")</h4> }
+    @if (User.IsInRole("Administrator"))
+    {<h4>@Html.ActionLink("Adicionar novo campeonato", "Create")</h4>}
+    @if (!User.IsInRole("Administrator"))
+    {<h4>@Html.ActionLink("Sugerir novo campeonato", "Create")</h4>}
 </p>
 <table class="table">
     <tr>
@@ -52,10 +64,12 @@
                     @Html.DisplayFor(modelItem => item.PrimeiraEdicao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ResumoCamp)
+                    @{ var a = Html.Raw(item.ResumoCamp);}
+                    @a
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.PrincipaisArtilheiros)
+                    @{ var b = Html.Raw(item.PrincipaisArtilheiros);}
+                    @b
                 </td>
                 <td>
                     @Html.ActionLink("Detalhes", "Details", new { id = item.CodigoCamp }) |
@@ -79,10 +93,12 @@
                         @Html.DisplayFor(modelItem => item.PrimeiraEdicao)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ResumoCamp)
+                        @{ var a = Html.Raw(item.ResumoCamp);}
+                        @a
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.PrincipaisArtilheiros)
+                        @{ var b = Html.Raw(item.PrincipaisArtilheiros);}
+                        @b
                     </td>
                     <td>
                         @Html.ActionLink("Detalhes", "Details", new { id = item.CodigoCamp }) |

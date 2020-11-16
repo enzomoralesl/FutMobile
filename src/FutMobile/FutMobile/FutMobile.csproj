@@ -602,7 +602,6 @@
     <Content Include="Views\Times\AwaitingApproval.cshtml" />
     <Content Include="Views\Times\EspecificaMotivo.cshtml" />
     <Content Include="Views\Campeonatos\EspecificaMotivo.cshtml" />
-    <Content Include="Views\Campeonatos\EspeMotivo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
