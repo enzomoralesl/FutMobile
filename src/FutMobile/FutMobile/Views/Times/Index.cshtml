@@ -11,11 +11,23 @@
     };
 </script>
 
-<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <div class="col-md-12" style="padding:0px; text-align:left;">
+            <input type="text" id="text1" name="text1" placeholder="Buscar time pelo nome" style="width:450px !important;" />
+            <input type="submit" value="Buscar" class="btn btn-default" />
+        </div>
+    </div>
+}
 
 <p>
-    @if (User.IsInRole("Administrator")) { <h4>@Html.ActionLink("Adicionar novo time", "Create")</h4> }
-    @if (!User.IsInRole("Administrator")) { <h4>@Html.ActionLink("Sugerir novo time", "Create")</h4> }
+    @if (User.IsInRole("Administrator"))
+    {<h4>@Html.ActionLink("Adicionar novo time", "Create")</h4>}
+    @if (!User.IsInRole("Administrator"))
+    {<h4>@Html.ActionLink("Sugerir novo time", "Create")</h4>}
 </p>
 <table class="table">
     <tr>
@@ -67,10 +79,12 @@
                     @String.Format("{0:dd/MM/yyyy}", item.Fundacao)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Resumo)
+                    @{ var a = Html.Raw(item.Resumo);}
+                    @a
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ResumoTitulos)
+                    @{ var b = Html.Raw(item.ResumoTitulos);}
+                    @b
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Mundial)
@@ -109,10 +123,12 @@
                         @String.Format("{0:dd/MM/yyyy}", item.Fundacao)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Resumo)
+                        @{ var a = Html.Raw(item.Resumo);}
+                        @a
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.ResumoTitulos)
+                        @{ var b = Html.Raw(item.ResumoTitulos);}
+                        @b
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Mundial)
@@ -139,4 +155,4 @@
         }
     }
 
-    </table>
+</table>

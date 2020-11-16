@@ -129,6 +129,10 @@ namespace FutMobile.Controllers
         {
             if (ModelState.IsValid)
             {
+                string mensagemeditada = post.Msg.Replace(Environment.NewLine, "<br />");
+
+                post.Msg = mensagemeditada;
+
                 post.UserLogin = User.Identity.Name; // Adiciona o login, e na view mostra o nome
                 post.Data = DateTime.Now;
                 post.Nome = ((ClaimsIdentity)User.Identity).FindFirst("FullName").ToString().Replace("FullName: ", "");
@@ -153,6 +157,9 @@ namespace FutMobile.Controllers
             {
                 return HttpNotFound();
             }
+
+            post.Msg = post.Msg.Replace("<br />", Environment.NewLine);
+
             return View(post);
         }
 
@@ -174,6 +181,10 @@ namespace FutMobile.Controllers
         {
             if (ModelState.IsValid)
             {
+                string mensagemeditada = post.Msg.Replace(Environment.NewLine, "<br />");
+
+                post.Msg = mensagemeditada;
+
                 var currentPost = db.Post.Find(post.Codigo);
                 currentPost.Categoria = post.Categoria;
                 currentPost.Titulo = post.Titulo;

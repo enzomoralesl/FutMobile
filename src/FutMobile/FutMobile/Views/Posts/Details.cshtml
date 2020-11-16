@@ -46,7 +46,8 @@
                 </div>
                 <div class="col-md-12" style="text-align: left;">
                     <hr />
-                    @Html.DisplayFor(modelItem => item.MsgCom)
+                    @{ var a = Html.Raw(item.MsgCom);}
+                    @a
                 </div>
                 <div class="col-md-9" style="width: 94%"></div>
                 <div class="col-md-1" style="width: 3%; padding:0px;" title="Curtir Comentário">

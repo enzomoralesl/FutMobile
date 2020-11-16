@@ -86,7 +86,7 @@ namespace FutMobile.Controllers
             return View(users);
         }
 
-        // POST: Posts/Delete/5
+        // POST
         [HttpPost, ActionName("ListUsers")]
         [ValidateAntiForgeryToken]
         public ActionResult ListUsers(string name)
