@@ -4,57 +4,77 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<style>
+    titulo{
+        font-size:15px;
+        font-weight:bolder;
+    }
+</style>
 
-<div>
-    <h4>Campeonato</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeCamp)
-        </dt>
+<script>
+    window.onload = function () {
+        document.getElementById("indice").className = "animation start-tres";
+        $('[id^=esconder_]').hide();
+    };
+</script>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeCamp)
-        </dd>
+<div class="row">
+    <div class="col-md-12" style="text-align:left; padding:10px 10px 15px 0px;">
+        <a href="/Campeonatos">
+            <input type="submit" class="btn btn-fut" style="height:30px; width:30px; padding:0px;" value="Voltar" />
+        </a>
+    </div>
 
-        <dt>
-            Logo
-        </dt>
+    <div class="col-md-12 backgroungLogin">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="text-align:center; font-weight: bolder; font-size: 20px; padding:0px;">
+                @Html.DisplayFor(model => model.NomeCamp)
+            </div>
+            <div class="col-md-3" style="text-align: right;">
+                @if (User.IsInRole("Administrator"))
+                {
+                    <div>
+                        @Html.ActionLink("Editar", "Edit", new { id = Model.CodigoCamp }) |
+                        @Html.ActionLink("Deletar", "Delete", new { id = Model.CodigoCamp })
+                    </div>
+                }
+                @if (!User.IsInRole("Administrator"))
+                {
+                    <div>
+                        @Html.ActionLink("Sugerir Edição", "Edit", new { id = Model.CodigoCamp }) |
+                        @Html.ActionLink("Sugerir Deletação", "Delete", new { id = Model.CodigoCamp })
+                    </div>
+                }
+            </div>
+        </div>
 
-        <dd>
-            <img src="../@Model.SimboloCampPath" width="250" height="250">
-        </dd>
+        <div class="col-md-9" style="text-align: justify; padding:0px;">
+            <br />
+            @{ var resumo = Html.Raw(Model.ResumoCamp);}
+            @resumo
+            <br /> <br />
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PrimeiraEdicao)
-        </dt>
+        <div class="col-md-3" style="text-align: center; font-size: 11px; padding:0px; ">
+            <img src="../@Model.SimboloCampPath" width="200" height="200">
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.PrimeiraEdicao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ResumoCamp)
-        </dt>
-
-        <dd>
-            @{ var a = Html.Raw(Model.ResumoCamp);}
-            @a
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PrincipaisArtilheiros)
-        </dt>
-
-        <dd>
-            @{ var b = Html.Raw(Model.PrincipaisArtilheiros);}
-            @b
-        </dd>
-
-    </dl>
+        <div class="col-md-12" style="font-size: 15px; text-align:left; padding:0px; border-top: 2px solid #f0f0f0;">
+            <br />
+            <div style="font-size:15px;">
+                <titulo>
+                    @Html.DisplayNameFor(model => model.PrimeiraEdicao):
+                </titulo>
+                @Html.DisplayFor(model => model.PrimeiraEdicao)
+            </div>
+            <br />
+            <div style=" font-size: 15px;">
+                <titulo>
+                    @Html.DisplayNameFor(model => model.PrincipaisArtilheiros):
+                </titulo>
+                <br /> @{ var art = Html.Raw(Model.PrincipaisArtilheiros);} @art<br /><br />
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CodigoCamp }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
