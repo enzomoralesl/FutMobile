@@ -4,95 +4,127 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<style>
+    titulo {
+        font-size: 15px;
+        font-weight: bolder;
+    }
+</style>
 
-<div>
-    <h4>Time</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeTime)
-        </dt>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeTime)
-        </dd>
+<script>
+    window.onload = function () {
+        document.getElementById("indice").className = "animation start-quatro";
+        $('[id^=esconder_]').hide();
+    };
 
-        <dt>
-            Escudo
-        </dt>
+    google.charts.load('current', { packages: ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(drawBasic);
 
-        <dd>
-            <img src="../@Model.BrasaoPath" width="250" height="250">
-        </dd>
+    function drawBasic() {
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fundacao)
-        </dt>
+        var data = google.visualization.arrayToDataTable([
+            ['Time', 'Quantidade', { role: 'style' }, { role: 'annotation' }],
+            ['Mundial', @Html.DisplayFor(model => model.Mundial), '#23527c', @Html.DisplayFor(model => model.Mundial)],
+            ['Libertadores', @Html.DisplayFor(model => model.Libertadores), '#23527c', @Html.DisplayFor(model => model.Libertadores)],
+            ['Brasileirão', @Html.DisplayFor(model => model.Brasileiro), '#23527c', @Html.DisplayFor(model => model.Brasileiro)],
+            ['Copa do Brasil', @Html.DisplayFor(model => model.CopaDoBrasil), '#23527c', @Html.DisplayFor(model => model.CopaDoBrasil)],
+            ['Estadual', @Html.DisplayFor(model => model.Estadual), '#23527c', @Html.DisplayFor(model => model.Estadual)]
+        ]);
 
-        <dd>
-            @Html.DisplayFor(model => model.Fundacao)
-        </dd>
+        var options = {
+            width: 700,
+            height: 350,
+            legend: {
+                position: "none"
+            },
+            title: 'Quantidade de títulos',
+            hAxis: {
+                gridlines: {
+                    color: '#fff'
+                }
+            },
+            vAxis: {
+                gridlines: {
+                    color: '#fff'
+                },
+                baseline: 'none',
+                textPosition: 'none',
+            }
+        };
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Resumo)
-        </dt>
+        var chart = new google.visualization.ColumnChart(
+            document.getElementById('chart_div'));
 
-        <dd>
-            @Html.DisplayFor(model => model.Resumo)
-        </dd>
+        chart.draw(data, options);
+    }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ResumoTitulos)
-        </dt>
+</script>
 
-        <dd>
-            @Html.DisplayFor(model => model.ResumoTitulos)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Mundial)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Mundial)
-        </dd>
+<div class="row">
+    <div class="col-md-12" style="text-align:left; padding:10px 10px 15px 0px;">
+        <a href="/Times">
+            <input type="submit" class="btn btn-fut" style="height:30px; width:30px; padding:0px;" value="Voltar" />
+        </a>
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Libertadores)
-        </dt>
+    <div class="col-md-12 backgroungLogin">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6" style="text-align:center; font-weight: bolder; font-size: 20px; padding:0px;">
+                @Html.DisplayFor(model => model.NomeTime)
+            </div>
+            <div class="col-md-3" style="text-align: right;">
+                @if (User.IsInRole("Administrator"))
+                {
+                    <div>
+                        @Html.ActionLink("Editar", "Edit", new { id = Model.CodigoTime }) |
+                        @Html.ActionLink("Deletar", "Delete", new { id = Model.CodigoTime })
+                    </div>
+                }
+                @if (!User.IsInRole("Administrator"))
+                {
+                    <div>
+                        @Html.ActionLink("Sugerir Edição", "Edit", new { id = Model.CodigoTime }) |
+                        @Html.ActionLink("Sugerir Deletação", "Delete", new { id = Model.CodigoTime })
+                    </div>
+                }
+            </div>
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Libertadores)
-        </dd>
+        <div class="col-md-9" style="text-align: justify; padding:0px;">
+            <br />
+            @{ var resumo = Html.Raw(Model.Resumo);}
+            @resumo
+            <br /> <br />
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Brasileiro)
-        </dt>
+        <div class="col-md-3" style="text-align: center; font-size: 11px; padding:0px; ">
+            <img src="../@Model.BrasaoPath" width="200" height="200">
+        </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Brasileiro)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.CopaDoBrasil)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CopaDoBrasil)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Estadual)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Estadual)
-        </dd>
-
-    </dl>
+        <div class="col-md-12" style="font-size: 15px; text-align:left; padding:0px; border-top: 2px solid #f0f0f0;">
+            <br />
+            <div style="font-size:15px; text-align: justify;">
+                <titulo>
+                    @Html.DisplayNameFor(model => model.Fundacao):
+                </titulo>
+                @String.Format("{0:dd/MM/yyyy}", Model.Fundacao)
+                <br/><br />
+                <titulo>
+                    @Html.DisplayNameFor(model => model.ResumoTitulos):<br />
+                </titulo>
+                @{ var resumoTitulos = Html.Raw(Model.ResumoTitulos);}
+                @resumoTitulos
+            </div>
+            <br />
+            <div class="col-md-2"></div>
+            <div class="col-md-8" style="border: 1px solid #ccc; border-radius:25px;">
+                <div id="chart_div"></div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CodigoTime }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

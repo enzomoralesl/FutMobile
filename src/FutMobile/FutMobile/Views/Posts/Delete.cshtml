@@ -62,7 +62,8 @@
             </div>
             <div class="col-md-10" style="text-align:left;">
                 <dd>
-                    @Html.DisplayFor(model => model.Msg)
+                    @{ var a = Html.Raw(Model.Msg);}
+                    @a
                     <br /><br />
                 </dd>
             </div>

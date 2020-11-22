@@ -99,7 +99,8 @@
             </div>
             <div class="col-md-12" style="border-bottom: 2px solid #f0f0f0;">
                 <br />
-                @Html.DisplayFor(modelItem => item.Msg)
+                @{ var a = Html.Raw(item.Msg);}
+                @a
                 <br /><br />
             </div>
             <div class="col-md-12" style="text-align:right; padding:0px;">

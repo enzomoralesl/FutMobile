@@ -13,9 +13,10 @@ namespace FutMobile.Models
         public int CodigoDoPost { get; set; }
         public string UserLoginCom { get; set; }
         public DateTime DataCom { get; set; }
+        [Display(Name = "Comentário:")]
         public string MsgCom { get; set; }
         public string NomeCom { get; set; }
-        [Display(Name = "Numero de Likes")]
+        [Display(Name = "Número de Likes")]
         public string LikesCom { get; set; }
     }
 }

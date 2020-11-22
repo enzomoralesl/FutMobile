@@ -25,6 +25,16 @@ namespace FutMobile.Controllers
             return View(db.Time.ToList());
         }
 
+        // POST: Times
+        [HttpPost, ActionName("Index")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(string name)
+        {
+            string nome = Convert.ToString(Request.Form["text1"]);
+            var teams = db.Time.ToList().Where(x => x.NomeTime.Contains(nome));
+            return View("Index", teams);
+        }
+
         // GET: Times/Details/5
         public ActionResult Details(int? id)
         {
@@ -60,6 +70,14 @@ namespace FutMobile.Controllers
         {
             if (ModelState.IsValid)
             {
+                string resumoEditado = time.Resumo.Replace(Environment.NewLine, "<br />");
+
+                time.Resumo = resumoEditado;
+
+                string resumoTitulosEditado = time.ResumoTitulos.Replace(Environment.NewLine, "<br />");
+
+                time.ResumoTitulos = resumoTitulosEditado;
+
                 string fileName = Path.GetFileNameWithoutExtension(time.ImageFile.FileName);
                 string extension = Path.GetExtension(time.ImageFile.FileName);
                 fileName = fileName + extension;
@@ -92,6 +110,11 @@ namespace FutMobile.Controllers
             {
                 return HttpNotFound();
             }
+
+            time.Resumo = time.Resumo.Replace("<br />", Environment.NewLine);
+
+            time.ResumoTitulos = time.ResumoTitulos.Replace("<br />", Environment.NewLine);
+
             return View(time);
         }
 
@@ -106,6 +129,14 @@ namespace FutMobile.Controllers
             {
                 if (User.IsInRole("Administrator"))
                 {
+                    string resumoEditado = time.Resumo.Replace(Environment.NewLine, "<br />");
+
+                    time.Resumo = resumoEditado;
+
+                    string resumoTitulosEditado = time.ResumoTitulos.Replace(Environment.NewLine, "<br />");
+
+                    time.ResumoTitulos = resumoTitulosEditado;
+
                     string fileName = Path.GetFileNameWithoutExtension(time.ImageFile.FileName);
                     string extension = Path.GetExtension(time.ImageFile.FileName);
                     fileName = fileName + extension;
@@ -188,7 +219,7 @@ namespace FutMobile.Controllers
 
                 string MotivoFormatado = motivo.MotivoDaRemocao.Replace(Environment.NewLine, "<br />");
 
-                message.Body = "Sugiro remoção deste campeonato.<br />Motivo: " + motivo.MotivoDaRemocao;
+                message.Body = "Sugiro remoção deste campeonato.<br />Motivo: " + MotivoFormatado;
                 message.Destination = "marcelopts151@gmail.com";
                 message.Subject = "Sugestão de remoção no time " + motivo.Nome + " - de " + User.Identity.Name;
 

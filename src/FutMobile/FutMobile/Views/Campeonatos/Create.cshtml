@@ -4,63 +4,71 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<script>
+    window.onload = function () {
+        document.getElementById("indice").className = "animation start-quatro";
+        $('[id^=esconder_]').hide();
+    };
+</script>
 
 @using (Html.BeginForm("Create", "Campeonatos", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Campeonato</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.NomeCamp, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.NomeCamp, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NomeCamp, "", new { @class = "text-danger" })
+    <div class="col-md-2"></div>
+    <div class="col-md-8 backgroungLogin" style="text-align:center; margin-top:2vh;">
+        <div class="form-horizontal">
+            <h4>Criar campeonato</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomeCamp, htmlAttributes: new { @class = "control-label col-md-12", @style = "text-align:left" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.NomeCamp, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 100% !important;" } })
+                    @Html.ValidationMessageFor(model => model.NomeCamp, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SimboloCampPath, htmlAttributes: new { @class = "control-label col-md-1", @style = "text-align:left" })
+                <div class="col-md-12">
+                    <input type="file" name="ImageFile" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PrimeiraEdicao, htmlAttributes: new { @class = "control-label col-md-12", @style = "text-align:left" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.PrimeiraEdicao, new { htmlAttributes = new { @class = "form-control", @style = "max-width: 100% !important;" } })
+                    @Html.ValidationMessageFor(model => model.PrimeiraEdicao, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PrincipaisArtilheiros, htmlAttributes: new { @class = "control-label col-md-12", @style = "text-align:left" })
+                <div class="col-md-12">
+
+                    @Html.TextAreaFor(model => model.PrincipaisArtilheiros, new { rows = "5", style = "white-space:pre-wrap; max-height:100% !important; max-width:100% !important;", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.PrincipaisArtilheiros, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ResumoCamp, htmlAttributes: new { @class = "control-label col-md-12", @style = "text-align:left" })
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.ResumoCamp, new {rows = "5",  style = "white-space:pre-wrap; max-height:100% !important; max-width:100% !important;width:100%;", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ResumoCamp, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Criar" class="btn btn-fut" style="height:40px; padding:0px;" />
+                </div>
             </div>
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.SimboloCampPath, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="file" name="ImageFile" required>
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PrimeiraEdicao, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrimeiraEdicao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PrimeiraEdicao, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.ResumoCamp, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.ResumoCamp, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ResumoCamp, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PrincipaisArtilheiros, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PrincipaisArtilheiros, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PrincipaisArtilheiros, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+        <div>
+            @Html.ActionLink("Voltar", "Index")
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

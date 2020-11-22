@@ -24,6 +24,8 @@ jobs:
       run: nuget restore "D:\a\FutMobile\FutMobile\src\FutMobile\"
 
     - name: Publish to folder
+      env:
+        ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       run: msbuild "D:\a\FutMobile\FutMobile\src\FutMobile" /p:Configuration=Release /p:DeployOnBuild=true /p:publishUrl="D:\a\FutMobile\FutMobile\src\FutMobile\published\" /p:PackageAsSingleFile=false
       
     - name: Run Unit Tests

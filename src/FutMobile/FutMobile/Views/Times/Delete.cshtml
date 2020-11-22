@@ -4,101 +4,110 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<script>
+    window.onload = function () {
+        document.getElementById("indice").className = "animation start-quatro";
+        $('[id^=esconder_]').hide();
+    };
+</script>
+<div class="col-md-12 backgroungLogin" style="text-align:left; margin-top:2vh;">
+    <div class="col-md-12" style="text-align:center; padding:0px;">
+        <h3>Tem certeza que deseja deletar esse campeonato?</h3>
+        <hr />
+    </div>
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NomeTime)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Time</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NomeTime)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NomeTime)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.NomeTime)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.BrasaoPath)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.BrasaoPath)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BrasaoPath)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.BrasaoPath)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Fundacao)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Fundacao)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Fundacao)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Fundacao)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Resumo)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Resumo)
-        </dt>
+            <dd>
+                @{ var a = Html.Raw(Model.Resumo);}
+                @a
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Resumo)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ResumoTitulos)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ResumoTitulos)
-        </dt>
+            <dd>
+                @{ var b = Html.Raw(Model.ResumoTitulos);}
+                @b
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.ResumoTitulos)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Mundial)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Mundial)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Mundial)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Mundial)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Libertadores)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Libertadores)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Libertadores)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Libertadores)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Brasileiro)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Brasileiro)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Brasileiro)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Brasileiro)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CopaDoBrasil)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CopaDoBrasil)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CopaDoBrasil)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CopaDoBrasil)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Estadual)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Estadual)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Estadual)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Estadual)
-        </dd>
+        </dl>
 
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-md-12" style="text-align:center; padding:0px; margin-top:-1vh;">
+                <input type="submit" value="Deletar" class="btn btn-fut" style="height:40px; padding:0px;" /> <br />
+                @Html.ActionLink("Voltar", "Index")
+            </div>
+        }
+    </div>
 </div>

@@ -4,6 +4,25 @@
     ViewBag.Title = "Index";
 }
 
+<style>
+    .iconeTime {
+        padding: 20px;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: #333 !important;
+    }
+
+        .iconeTime:hover {
+            border: 1px solid #ccc !important;
+            background-color: #afcbe3;
+            padding: 19px;
+        }
+</style>
+
+
 <script>
     window.onload = function () {
         document.getElementById("indice").className = "animation start-quatro";
@@ -11,132 +30,36 @@
     };
 </script>
 
-<h2>Index</h2>
 
-<p>
-    @if (User.IsInRole("Administrator")) { <h4>@Html.ActionLink("Adicionar novo time", "Create")</h4> }
-    @if (!User.IsInRole("Administrator")) { <h4>@Html.ActionLink("Sugerir novo time", "Create")</h4> }
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeTime)
-        </th>
-        <th>
-            Escudo
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Fundacao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Resumo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ResumoTitulos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mundial)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Libertadores)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Brasileiro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CopaDoBrasil)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estadual)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+<div class="col-md-12" style="text-align:center;">
+    <h2>Times</h2>
+    <a href="/Times/Create">
+        <input type="submit" class="btn btn-fut" style="height:30px; width:30px; padding:0px;" value="Criar" />
+    </a>
+    @using (Html.BeginForm())
     {
-        if (User.IsInRole("Administrator"))
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomeTime)
-                </td>
-                <td>
-                    <img src="@item.BrasaoPath" width="250" height="250">
-                </td>
-                <td>
-                    @String.Format("{0:dd/MM/yyyy}", item.Fundacao)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Resumo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ResumoTitulos)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Mundial)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Libertadores)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Brasileiro)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CopaDoBrasil)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Estadual)
-                </td>
-                <td>
-                    @Html.ActionLink("Detalhes", "Details", new { id = item.CodigoTime }) |
-                    @Html.ActionLink("Editar", "Edit", new { id = item.CodigoTime }) |
-                    @Html.ActionLink("Deletar", "Delete", new { id = item.CodigoTime })
-                </td>
-            </tr>
-        }
-        else
-        {
-            if (!item.NomeTime.StartsWith("Sugestao - "))
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.NomeTime)
-                    </td>
-                    <td>
-                        <img src="@item.BrasaoPath" width="250" height="250">
-                    </td>
-                    <td>
-                        @String.Format("{0:dd/MM/yyyy}", item.Fundacao)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Resumo)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ResumoTitulos)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Mundial)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Libertadores)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Brasileiro)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CopaDoBrasil)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Estadual)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Detalhes", "Details", new { id = item.CodigoTime }) |
-                        @Html.ActionLink("Sugerir alteração", "Edit", new { id = item.CodigoTime }) |
-                        @Html.ActionLink("Sugerir deleção", "Delete", new { id = item.CodigoTime })
-                    </td>
-                </tr>
-            }
-        }
-    }
+        @Html.AntiForgeryToken()
 
-    </table>
+        <div class="col-md-12" style="padding:0px; text-align:center;">
+            <br />
+            <input type="text" id="text1" name="text1" placeholder="   Buscar time pelo nome" style="width:275px !important; height:32px; border: 1px solid #ccc; border-radius:10px;" />
+            <input type="submit" value="Buscar" class="btn btn-default" style="border-radius:25px;" />
+        </div>
+    }
+    <div class="col-md-12" style="padding:0px;"><br /></div>
+</div>
+
+
+<div class="row" style="padding:10px;">
+    <div class="col-md-12 backgroungLogin">
+        @foreach (var item in Model)
+        {
+            <a href="/Times/Details/@item.CodigoTime">
+                <div class="col-md-3 iconeTime">
+                    <img src="@item.BrasaoPath" width="75" height="75"><br />
+                    @Html.DisplayFor(modelItem => item.NomeTime)
+                </div>
+            </a>
+        }
+    </div>
+</div>
