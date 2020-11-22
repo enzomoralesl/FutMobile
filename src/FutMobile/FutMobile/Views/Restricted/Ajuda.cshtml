@@ -163,7 +163,7 @@
                     </div>
                     <div class="col-md-12">
                         <label style="color:#fff;" for="mensagem">Mensagem:</label>
-                        @Html.TextAreaFor(m => m.Mensagem, new { style = "white-space:pre-wrap; max-height:100% !important; max-width:100% !important;", placeholder = "Insiria sua Mensagem", @class = "form-control" })
+                        @Html.TextAreaFor(m => m.Mensagem, new { rows = '7', style = "white-space:pre-wrap; max-height:100% !important; max-width:100% !important;", placeholder = "Insiria sua Mensagem", @class = "form-control" })
                     </div>
                     <div class="col-md-12" style="text-align:right">
                         <input type="submit" value="Enviar" class="btn btn-fut" />

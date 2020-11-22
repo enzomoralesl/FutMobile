@@ -1072,7 +1072,6 @@ C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Net.Http.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\timesecamp\FutMobile\src\FutMobile\FutMobile\bin\FutMobile.dll.config
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\timesecamp\FutMobile\src\FutMobile\FutMobile\bin\FutMobile.dll
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\Branches\timesecamp\FutMobile\src\FutMobile\FutMobile\bin\FutMobile.pdb
@@ -1236,3 +1235,11 @@ C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Web.Http.WebHost.xml
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.RetiradaRequiredTime.resources
 C:\Users\marce\OneDrive\Área de Trabalho\GIT\FutMobile\src\FutMobile\FutMobile\bin\System.Net.Http.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Net.Http.Formatting.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Web.Http.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Web.Http.WebHost.dll
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Net.Http.Formatting.xml
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Web.Http.xml
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Web.Http.WebHost.xml
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\obj\Release\FutMobile.Migrations.RetiradaRequiredTime.resources
+C:\Users\windows\Documents\Mackenzie\6º Semestre\Software\GitHub\src\FutMobile\FutMobile\bin\System.Net.Http.dll
