@@ -154,7 +154,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.IO.Compression">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net471\lib\System.IO.Compression.dll</HintPath>
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net45\System.IO.Compression.dll</HintPath>
     </Reference>
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -183,7 +183,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\net471\lib\System.Net.Http.dll</HintPath>
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net45\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -620,30 +620,39 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009121914328_InitialCreate.resx">
       <DependentUpon>202009121914328_InitialCreate.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009122018071_Login.resx">
       <DependentUpon>202009122018071_Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009190201264_Name.resx">
       <DependentUpon>202009190201264_Name.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010060245542_Nm.resx">
       <DependentUpon>202010060245542_Nm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010060246363_Name1.resx">
       <DependentUpon>202010060246363_Name1.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010061541248_LikesAndComments.resx">
       <DependentUpon>202010061541248_LikesAndComments.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010061556537_Likes.resx">
       <DependentUpon>202010061556537_Likes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010061609236_AddedLikes.resx">
       <DependentUpon>202010061609236_AddedLikes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010061613426_AddedLikesOneMoreTime.resx">
       <DependentUpon>202010061613426_AddedLikesOneMoreTime.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010061842534_AddedComments.resx">
       <DependentUpon>202010061842534_AddedComments.cs</DependentUpon>
